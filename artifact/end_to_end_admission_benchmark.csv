@@ -1,6 +1,8 @@
 kind,workers,submitted,accepted,rejected,admissions_per_second,p50_ms,p95_ms,p99_ms,aggregation_ms,invariant_violations
-admission,1,2000,1801,199,42590.19,0.0187,0.0450,0.0788,1.9907,0
-admission,4,2000,1801,199,30071.57,0.0204,0.0488,0.0950,3.0223,0
-source_token_race,4,4,1,3,,,,,,0
-counter_race,4,4,1,3,,,,,,0
-crash_recovery,,,1,2,,,,,0.0898,0
+admission,1,100000,90001,9999,42491.83,0.0199,0.0318,0.2053,120.2830,0
+admission,4,100000,90001,9999,36702.52,0.0219,0.0472,0.1696,119.3517,0
+admission,16,100000,90001,9999,36936.97,0.0214,0.0410,0.1359,122.6917,0
+admission,32,100000,90001,9999,33831.31,0.0224,0.0498,0.1641,141.2870,0
+source_token_race,32,32,1,31,,,,,,0
+counter_race,32,32,1,31,,,,,,0
+crash_recovery,,,1,2,,,,,0.1124,0

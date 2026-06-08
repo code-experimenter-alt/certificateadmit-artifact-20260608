@@ -21,21 +21,21 @@
       "submitted": 5000,
       "accepted": 4556,
       "rejected": 444,
-      "admissions_per_second": 270503.97112615476,
+      "admissions_per_second": 273509.3310185925,
       "latency_ms": {
-        "mean": 0.003373028035275638,
-        "p50": 0.0029189977794885635,
-        "p95": 0.005512963980436325
+        "mean": 0.0033419661456719043,
+        "p50": 0.002934015356004238,
+        "p95": 0.005412963218986988
       },
       "query_ms": {
-        "windowed_aggregation": 0.23547199089080095,
-        "seller_payment_join": 0.4155040951445699,
-        "rejection_disputes": 0.030135037377476692,
-        "policy_churn_audit": 1.0848930105566978,
-        "source_fill_rate": 0.7288589840754867,
-        "ledger_probe": 0.011699041351675987
+        "windowed_aggregation": 0.20430702716112137,
+        "seller_payment_join": 0.3994100261479616,
+        "rejection_disputes": 0.028705107979476452,
+        "policy_churn_audit": 1.0538640199229121,
+        "source_fill_rate": 0.6779769901186228,
+        "ledger_probe": 0.00931497197598219
       },
-      "query_total_ms": 2.506562159396708,
+      "query_total_ms": 2.3735781433060765,
       "payment_after_reconcile": 3872.2999999999997,
       "invariants": {
         "duplicate_sources": 0,
@@ -47,7 +47,7 @@
       "pre_reconcile_invariant_sum": 888,
       "reconcile": {
         "reconciled_rows": 444,
-        "reconciliation_ms": 6.355341989547014
+        "reconciliation_ms": 6.186396931298077
       }
     },
     {
@@ -55,21 +55,21 @@
       "submitted": 5000,
       "accepted": 4556,
       "rejected": 444,
-      "admissions_per_second": 648062.9433700936,
+      "admissions_per_second": 701730.4569561387,
       "latency_ms": {
-        "mean": 0.0013935868395492435,
-        "p50": 0.0012560049071907997,
-        "p95": 0.002227025106549263
+        "mean": 0.0012838903348892927,
+        "p50": 0.0011719530448317528,
+        "p95": 0.002049957402050495
       },
       "query_ms": {
-        "windowed_aggregation": 0.22779498249292374,
-        "seller_payment_join": 0.4736250266432762,
-        "rejection_disputes": 0.0331290066242218,
-        "policy_churn_audit": 1.225933083333075,
-        "source_fill_rate": 0.7839730242267251,
-        "ledger_probe": 0.014004996046423912
+        "windowed_aggregation": 0.2038649981841445,
+        "seller_payment_join": 0.4106319975107908,
+        "rejection_disputes": 0.02848601434379816,
+        "policy_churn_audit": 1.082223025150597,
+        "source_fill_rate": 0.7014669245108962,
+        "ledger_probe": 0.010262010619044304
       },
-      "query_total_ms": 2.758460119366646,
+      "query_total_ms": 2.436934970319271,
       "payment_after_reconcile": 3872.2999999999997,
       "invariants": {
         "duplicate_sources": 0,
@@ -82,8 +82,8 @@
       "reconcile": {
         "reconciled_rows": 444,
         "published_rows": 4556,
-        "publication_ms": 30.868337024003267,
-        "reconciliation_ms": 30.868337024003267
+        "publication_ms": 27.98177395015955,
+        "reconciliation_ms": 27.98177395015955
       }
     },
     {
@@ -91,21 +91,21 @@
       "submitted": 5000,
       "accepted": 4556,
       "rejected": 444,
-      "admissions_per_second": 28600.21150693344,
+      "admissions_per_second": 30623.525916977876,
       "latency_ms": {
-        "mean": 0.034865733794867994,
-        "p50": 0.03039906732738018,
-        "p95": 0.04839594475924969
+        "mean": 0.032576161227189,
+        "p50": 0.02883200068026781,
+        "p95": 0.04531804006546736
       },
       "query_ms": {
-        "windowed_aggregation": 0.25208108127117157,
-        "seller_payment_join": 0.49415603280067444,
-        "rejection_disputes": 0.034569064155220985,
-        "policy_churn_audit": 1.316032954491675,
-        "source_fill_rate": 0.8041829569265246,
-        "ledger_probe": 0.014938064850866795
+        "windowed_aggregation": 0.24232303258031607,
+        "seller_payment_join": 0.48230006359517574,
+        "rejection_disputes": 0.033247051760554314,
+        "policy_churn_audit": 1.245914027094841,
+        "source_fill_rate": 0.7705319439992309,
+        "ledger_probe": 0.011310097761452198
       },
-      "query_total_ms": 2.9159601544961333,
+      "query_total_ms": 2.78562621679157,
       "payment_after_reconcile": 3872.2999999999997,
       "invariants": {
         "duplicate_sources": 0,

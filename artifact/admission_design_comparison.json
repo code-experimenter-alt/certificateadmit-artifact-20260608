@@ -11,20 +11,20 @@
       "submitted": 5000,
       "accepted": 5000,
       "rejected": 0,
-      "admissions_per_second": 611565.2868571313,
+      "admissions_per_second": 630656.9101611158,
       "latency_ms": {
-        "mean": 0.0014686990063637495,
-        "p50": 0.0012810342013835907,
-        "p95": 0.002642977051436901
+        "mean": 0.001432579755783081,
+        "p50": 0.0012619420886039734,
+        "p95": 0.0025460030883550644
       },
       "query_ms": {
-        "accepted_by_price": 0.13138202484697104,
-        "price_join": 0.27733389288187027,
-        "source_audit": 0.3029720392078161,
-        "rejection_audit": 0.006215996108949184,
-        "ledger_probe": 0.007158960215747356
+        "accepted_by_price": 0.12370490003377199,
+        "price_join": 0.2481299452483654,
+        "source_audit": 0.28360600117594004,
+        "rejection_audit": 0.005576061084866524,
+        "ledger_probe": 0.006207963451743126
       },
-      "query_total_ms": 0.725062913261354,
+      "query_total_ms": 0.6672248709946871,
       "invariants": {
         "duplicate_sources": 249,
         "duplicate_counters": 250,
@@ -40,20 +40,20 @@
       "submitted": 5000,
       "accepted": 5000,
       "rejected": 0,
-      "admissions_per_second": 340020.3532429077,
+      "admissions_per_second": 363014.72475849173,
       "latency_ms": {
-        "mean": 0.0026710474165156485,
-        "p50": 0.0023889588192105293,
-        "p95": 0.004244968295097351
+        "mean": 0.002519147377461195,
+        "p50": 0.002261018380522728,
+        "p95": 0.0039780279621481895
       },
       "query_ms": {
-        "accepted_by_price": 0.1331149833276868,
-        "price_join": 0.28410402592271566,
-        "source_audit": 0.3182321088388562,
-        "rejection_audit": 0.006269896402955055,
-        "ledger_probe": 0.0077070435509085655
+        "accepted_by_price": 0.11823093518614769,
+        "price_join": 0.2474250504747033,
+        "source_audit": 0.2790619619190693,
+        "rejection_audit": 0.005195965059101582,
+        "ledger_probe": 0.006354996003210545
       },
-      "query_total_ms": 0.7494280580431223,
+      "query_total_ms": 0.6562689086422324,
       "invariants": {
         "duplicate_sources": 249,
         "duplicate_counters": 250,
@@ -69,20 +69,20 @@
       "submitted": 5000,
       "accepted": 4875,
       "rejected": 125,
-      "admissions_per_second": 299167.18437959545,
+      "admissions_per_second": 307609.1682812153,
       "latency_ms": {
-        "mean": 0.0030923845246434213,
-        "p50": 0.0028329668566584587,
-        "p95": 0.004598055966198444
+        "mean": 0.0030251457821577786,
+        "p50": 0.0027939677238464355,
+        "p95": 0.004342058673501015
       },
       "query_ms": {
-        "accepted_by_price": 0.1210490008816123,
-        "price_join": 0.25950500275939703,
-        "source_audit": 0.28671708423644304,
-        "rejection_audit": 0.009144074283540249,
-        "ledger_probe": 0.006702961400151253
+        "accepted_by_price": 0.12103409972041845,
+        "price_join": 0.25927205570042133,
+        "source_audit": 0.2775411121547222,
+        "rejection_audit": 0.008973991498351097,
+        "ledger_probe": 0.006454065442085266
       },
-      "query_total_ms": 0.6831181235611439,
+      "query_total_ms": 0.6732753245159984,
       "invariants": {
         "duplicate_sources": 249,
         "duplicate_counters": 250,
@@ -98,20 +98,20 @@
       "submitted": 5000,
       "accepted": 4376,
       "rejected": 624,
-      "admissions_per_second": 362907.7761259551,
+      "admissions_per_second": 376493.9457953813,
       "latency_ms": {
-        "mean": 0.0025168363004922866,
-        "p50": 0.00227498821914196,
-        "p95": 0.003854045644402504
+        "mean": 0.00242490665987134,
+        "p50": 0.002196989953517914,
+        "p95": 0.003730994649231434
       },
       "query_ms": {
-        "accepted_by_price": 0.12582901399582624,
-        "price_join": 0.2509639598429203,
-        "source_audit": 0.45546400360763073,
-        "rejection_audit": 0.02416200004518032,
-        "ledger_probe": 0.007544993422925472
+        "accepted_by_price": 0.12299290392547846,
+        "price_join": 0.2461179392412305,
+        "source_audit": 0.445054960437119,
+        "rejection_audit": 0.024241977371275425,
+        "ledger_probe": 0.007831025868654251
       },
-      "query_total_ms": 0.8639639709144831,
+      "query_total_ms": 0.8462388068437576,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -122,7 +122,7 @@
       "pre_reconcile_invariant_sum": 1248,
       "reconcile": {
         "reconciled_rows": 624,
-        "reconciliation_ms": 41.88380902633071
+        "reconciliation_ms": 42.123527033254504
       }
     },
     {
@@ -130,20 +130,20 @@
       "submitted": 5000,
       "accepted": 4376,
       "rejected": 624,
-      "admissions_per_second": 730479.5120026352,
+      "admissions_per_second": 746217.1922765811,
       "latency_ms": {
-        "mean": 0.0012359629618003964,
-        "p50": 0.0011390075087547302,
-        "p95": 0.0019799917936325073
+        "mean": 0.0012066900497302413,
+        "p50": 0.0011040829122066498,
+        "p95": 0.0019209692254662514
       },
       "query_ms": {
-        "accepted_by_price": 0.12610794510692358,
-        "price_join": 0.24205492809414864,
-        "source_audit": 0.4010549746453762,
-        "rejection_audit": 0.023888074792921543,
-        "ledger_probe": 0.007026945240795612
+        "accepted_by_price": 0.13746402692049742,
+        "price_join": 0.2584849717095494,
+        "source_audit": 0.4014729056507349,
+        "rejection_audit": 0.02354604657739401,
+        "ledger_probe": 0.007495982572436333
       },
-      "query_total_ms": 0.8001328678801656,
+      "query_total_ms": 0.8284639334306121,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -155,8 +155,8 @@
       "reconcile": {
         "reconciled_rows": 624,
         "published_rows": 4376,
-        "publication_ms": 22.703460999764502,
-        "reconciliation_ms": 22.703460999764502
+        "publication_ms": 22.280907025560737,
+        "reconciliation_ms": 22.280907025560737
       }
     },
     {
@@ -164,20 +164,20 @@
       "submitted": 5000,
       "accepted": 4751,
       "rejected": 249,
-      "admissions_per_second": 262903.5560373158,
+      "admissions_per_second": 254504.25420284682,
       "latency_ms": {
-        "mean": 0.0035298240836709738,
-        "p50": 0.003308989107608795,
-        "p95": 0.0049979425966739655
+        "mean": 0.003640881460160017,
+        "p50": 0.003403984010219574,
+        "p95": 0.005257083103060722
       },
       "query_ms": {
-        "accepted_by_price": 0.1245460007339716,
-        "price_join": 0.25787006597965956,
-        "source_audit": 0.3188549308106303,
-        "rejection_audit": 0.012582982890307903,
-        "ledger_probe": 0.006924034096300602
+        "accepted_by_price": 0.12769305612891912,
+        "price_join": 0.2704859944060445,
+        "source_audit": 0.3151079872623086,
+        "rejection_audit": 0.012850039638578892,
+        "ledger_probe": 0.007103080861270428
       },
-      "query_total_ms": 0.72077801451087,
+      "query_total_ms": 0.7332401582971215,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 250,
@@ -193,20 +193,20 @@
       "submitted": 5000,
       "accepted": 4626,
       "rejected": 374,
-      "admissions_per_second": 32132.01559854178,
+      "admissions_per_second": 32937.56457872825,
       "latency_ms": {
-        "mean": 0.03105566119775176,
-        "p50": 0.02914003562182188,
-        "p95": 0.0410319771617651
+        "mean": 0.03028798147570342,
+        "p50": 0.027862959541380405,
+        "p95": 0.0409870408475399
       },
       "query_ms": {
-        "accepted_by_price": 0.11180294677615166,
-        "price_join": 0.2560709835961461,
-        "source_audit": 0.2714680740609765,
-        "rejection_audit": 0.015869038179516792,
-        "ledger_probe": 0.007239985279738903
+        "accepted_by_price": 0.12136599980294704,
+        "price_join": 0.24965591728687286,
+        "source_audit": 0.30563795007765293,
+        "rejection_audit": 0.016945996321737766,
+        "ledger_probe": 0.007509952411055565
       },
-      "query_total_ms": 0.66245102789253,
+      "query_total_ms": 0.7011158159002662,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 250,
@@ -222,20 +222,20 @@
       "submitted": 5000,
       "accepted": 4376,
       "rejected": 624,
-      "admissions_per_second": 31784.931466263115,
+      "admissions_per_second": 34377.06149181706,
       "latency_ms": {
-        "mean": 0.03139311792328954,
-        "p50": 0.02996495459228754,
-        "p95": 0.043357955291867256
+        "mean": 0.029020829172804952,
+        "p50": 0.027588102966547012,
+        "p95": 0.03955501597374678
       },
       "query_ms": {
-        "accepted_by_price": 0.11551100760698318,
-        "price_join": 0.253446982242167,
-        "source_audit": 0.31899299938231707,
-        "rejection_audit": 0.0233139144256711,
-        "ledger_probe": 0.0074909767135977745
+        "accepted_by_price": 0.10337796993553638,
+        "price_join": 0.2216820139437914,
+        "source_audit": 0.32410898711532354,
+        "rejection_audit": 0.022966996766626835,
+        "ledger_probe": 0.006454996764659882
       },
-      "query_total_ms": 0.7187558803707361,
+      "query_total_ms": 0.678590964525938,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -251,20 +251,20 @@
       "submitted": 5000,
       "accepted": 4376,
       "rejected": 624,
-      "admissions_per_second": 31616.723561461415,
+      "admissions_per_second": 34446.704087910046,
       "latency_ms": {
-        "mean": 0.03155775882769376,
-        "p50": 0.030132010579109192,
-        "p95": 0.0422940356656909
+        "mean": 0.028963929368183018,
+        "p50": 0.027608941309154034,
+        "p95": 0.039773061871528625
       },
       "query_ms": {
-        "accepted_by_price": 0.10731606744229794,
-        "price_join": 0.22629904560744762,
-        "source_audit": 0.2967769978567958,
-        "rejection_audit": 0.02077000681310892,
-        "ledger_probe": 0.007011927664279938
+        "accepted_by_price": 0.10938302148133516,
+        "price_join": 0.23065891582518816,
+        "source_audit": 0.298480037599802,
+        "rejection_audit": 0.022366992197930813,
+        "ledger_probe": 0.007143011316657066
       },
-      "query_total_ms": 0.6581740453839302,
+      "query_total_ms": 0.6680319784209132,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,

@@ -1,9 +1,11 @@
 {
   "parameters": {
-    "n": 2000,
+    "n": 100000,
     "workers": [
       1,
-      4
+      4,
+      16,
+      32
     ],
     "fraud_rate": 0.1,
     "duplicate_rate": 0.05,
@@ -13,26 +15,26 @@
   "admission_benchmarks": [
     {
       "workers": 1,
-      "submitted": 2000,
-      "accepted": 1801,
-      "rejected": 199,
+      "submitted": 100000,
+      "accepted": 90001,
+      "rejected": 9999,
       "reasons": {
-        "accepted": 1801,
-        "price_row_binding": 50,
-        "source_token_reuse": 100,
-        "duplicate_counter": 49
+        "accepted": 90001,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000,
+        "duplicate_counter": 2499
       },
-      "elapsed_ms": 46.9591700239107,
-      "admissions_per_second": 42590.190563028234,
+      "elapsed_ms": 2353.3934260485694,
+      "admissions_per_second": 42491.83281178087,
       "latency_ms": {
-        "mean": 0.022598401352297515,
-        "p50": 0.01871003769338131,
-        "p95": 0.04498602356761694,
-        "p99": 0.07881899364292622
+        "mean": 0.02339860853855498,
+        "p50": 0.01986802089959383,
+        "p95": 0.03180094063282013,
+        "p99": 0.20526000298559666
       },
-      "accepted_only_aggregation_ms": 1.9906950183212757,
-      "accepted_only_query_ms": 0.11802301742136478,
-      "price_join_query_ms": 0.1482999650761485,
+      "accepted_only_aggregation_ms": 120.28295500203967,
+      "accepted_only_query_ms": 4.894434008747339,
+      "price_join_query_ms": 6.520778057165444,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -40,30 +42,30 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w1_lyetsytl/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w1_5ngbbh_j/admission.sqlite"
     },
     {
       "workers": 4,
-      "submitted": 2000,
-      "accepted": 1801,
-      "rejected": 199,
+      "submitted": 100000,
+      "accepted": 90001,
+      "rejected": 9999,
       "reasons": {
-        "accepted": 1801,
-        "source_token_reuse": 100,
-        "duplicate_counter": 49,
-        "price_row_binding": 50
+        "accepted": 90001,
+        "source_token_reuse": 5000,
+        "duplicate_counter": 2499,
+        "price_row_binding": 2500
       },
-      "elapsed_ms": 66.50799093768,
-      "admissions_per_second": 30071.574434928585,
+      "elapsed_ms": 2724.608652992174,
+      "admissions_per_second": 36702.51868655694,
       "latency_ms": {
-        "mean": 0.08224890008568764,
-        "p50": 0.020434032194316387,
-        "p95": 0.048757996410131454,
-        "p99": 0.0949689419940114
+        "mean": 0.07882875801878982,
+        "p50": 0.0219360226765275,
+        "p95": 0.047186040319502354,
+        "p99": 0.16959290951490402
       },
-      "accepted_only_aggregation_ms": 3.0223489739000797,
-      "accepted_only_query_ms": 0.19422697369009256,
-      "price_join_query_ms": 0.23717503063380718,
+      "accepted_only_aggregation_ms": 119.35169401112944,
+      "accepted_only_query_ms": 4.875902086496353,
+      "price_join_query_ms": 6.53652404434979,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -71,17 +73,79 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w4_k3l3z7gh/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w4_c6r3700k/admission.sqlite"
+    },
+    {
+      "workers": 16,
+      "submitted": 100000,
+      "accepted": 90001,
+      "rejected": 9999,
+      "reasons": {
+        "accepted": 90001,
+        "duplicate_counter": 2499,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000
+      },
+      "elapsed_ms": 2707.3146470356733,
+      "admissions_per_second": 36936.9700376324,
+      "latency_ms": {
+        "mean": 0.25682778407470325,
+        "p50": 0.021412968635559082,
+        "p95": 0.04096503835171461,
+        "p99": 0.1359040616080165
+      },
+      "accepted_only_aggregation_ms": 122.69165797624737,
+      "accepted_only_query_ms": 5.056982045061886,
+      "price_join_query_ms": 6.7598780151456594,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      },
+      "db_path": "/tmp/e2e_admission_w16_6f__qc_6/admission.sqlite"
+    },
+    {
+      "workers": 32,
+      "submitted": 100000,
+      "accepted": 90001,
+      "rejected": 9999,
+      "reasons": {
+        "duplicate_counter": 2499,
+        "accepted": 90001,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000
+      },
+      "elapsed_ms": 2955.841719987802,
+      "admissions_per_second": 33831.310832304196,
+      "latency_ms": {
+        "mean": 0.5884080690704286,
+        "p50": 0.022356980480253696,
+        "p95": 0.04983600229024887,
+        "p99": 0.16413803678005934
+      },
+      "accepted_only_aggregation_ms": 141.28695195540786,
+      "accepted_only_query_ms": 5.855774041265249,
+      "price_join_query_ms": 7.500790990889072,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      },
+      "db_path": "/tmp/e2e_admission_w32_sh79vcxl/admission.sqlite"
     }
   ],
   "race_tests": [
     {
       "scenario": "source_token_race",
-      "workers": 4,
+      "workers": 32,
       "accepted": 1,
-      "aggregation_ms": 0.10681001003831625,
+      "aggregation_ms": 0.1346359495073557,
       "rejected_by_reason": {
-        "source_token_reuse": 3
+        "source_token_reuse": 31
       },
       "invariants": {
         "duplicate_sources": 0,
@@ -93,11 +157,11 @@
     },
     {
       "scenario": "counter_race",
-      "workers": 4,
+      "workers": 32,
       "accepted": 1,
-      "aggregation_ms": 0.10282197035849094,
+      "aggregation_ms": 0.14437607023864985,
       "rejected_by_reason": {
-        "duplicate_counter": 3
+        "duplicate_counter": 31
       },
       "invariants": {
         "duplicate_sources": 0,
@@ -111,9 +175,9 @@
   "crash_recovery": {
     "scenario": "crash_recovery",
     "missing_events": 2,
-    "recovery_mark_missing_ms": 0.058540026657283306,
-    "first_aggregation_ms": 0.08976995013654232,
-    "second_aggregation_ms": 0.016003032214939594,
+    "recovery_mark_missing_ms": 0.07080996874719858,
+    "first_aggregation_ms": 0.1123680267482996,
+    "second_aggregation_ms": 0.019481987692415714,
     "unaggregated_accepted": 0,
     "aggregate_reports_after_two_replays": 1,
     "invariant_violations": 0
