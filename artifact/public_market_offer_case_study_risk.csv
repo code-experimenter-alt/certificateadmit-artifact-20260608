@@ -1,0 +1,13 @@
+product,annual_price_usd,quality_haircut_fraction,contract_value_at_risk_usd
+Thinknum: Government Contracts,16800,0.1,1680.0
+Thinknum: Government Contracts,16800,0.25,4200.0
+Thinknum: Government Contracts,16800,0.5,8400.0
+ChinaScope: Smart Tag,50000,0.1,5000.0
+ChinaScope: Smart Tag,50000,0.25,12500.0
+ChinaScope: Smart Tag,50000,0.5,25000.0
+Quant IP: Patent Dataset,59000,0.1,5900.0
+Quant IP: Patent Dataset,59000,0.25,14750.0
+Quant IP: Patent Dataset,59000,0.5,29500.0
+Greenwich.HR: Labor Market Intelligence Data,85000,0.1,8500.0
+Greenwich.HR: Labor Market Intelligence Data,85000,0.25,21250.0
+Greenwich.HR: Labor Market Intelligence Data,85000,0.5,42500.0

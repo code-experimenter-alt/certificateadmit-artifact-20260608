@@ -1,0 +1,10 @@
+removed_component,lost_invariant,attack_enabled,demo_control
+attestation digest binding,accepted report is produced by an allowed oracle image and field tuple,forged certificate or unattested field substitution,"attestation_chain, attestation_binding, pcr_allowlist"
+report commitment,submitted y is the report committed inside the oracle trace,report mutation after certification,report_commitment
+source token,at most one accepted report per admitted source/cohort slot,source double spend or silent resampling,"source_admission, source_token_reuse"
+seller/session/counter key,forked oracle branches cannot both advance freshness state,fork or rollback replay,stale_or_duplicate_counter
+verifier nonce,old oracle output cannot satisfy a fresh challenge,cross-session replay,nonce_reuse
+policy version and PCR allow-list,admission uses the current approved randomizer and class map,downgraded code or stale policy,"policy_version, pcr_allowlist"
+price-row binding,certificate quality signal matches the charged price row,price substitution after attestation,"price_row_binding, quality_class"
+residual-control evidence,"sealed-class hidden premium is priced, audited, deposited, or rejected",within-class over-claim with no expected penalty,residual_control
+rejection audit row,market can query failed admissions and fill-rate exceptions,unexplained dropped reports and opaque seller failures,"rejected_rows, missing_precommit"

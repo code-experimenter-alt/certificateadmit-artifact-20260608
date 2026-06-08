@@ -1,0 +1,4 @@
+policy,sla_warn,sla_reject,accepted_cells,flagged_or_rejected_cells,max_abs_bias_accepted,worst_accepted_positive_drop,worst_accepted_negative_drop,worst_accepted_missing_rate
+baseline_5_10,0.05,0.1,14,10,0.024358974358974363,0.5,0.0,0.025
+strict_2_5,0.02,0.05,6,18,0.016921119592875324,0.35,0.0,0.0175
+strict_1_3,0.01,0.03,4,20,0.009595959595959595,0.2,0.0,0.01

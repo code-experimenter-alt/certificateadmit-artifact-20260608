@@ -1,0 +1,112 @@
+{
+  "artifact": "etcd_linearizable_admission_benchmark",
+  "skipped": false,
+  "parameters": {
+    "db": "three-node-local-etcd",
+    "etcd_version": "etcd Version: 3.5.16",
+    "n": 1000,
+    "workers": [
+      1,
+      4,
+      16
+    ],
+    "transaction": "compare source-token value=issued and terminal/counter/nonce key versions=0; put consumed source, terminal row, counter/nonce indexes, and aggregate queue row",
+    "note": "uses etcdctl subprocesses, so reported latency includes client process overhead"
+  },
+  "admission_benchmarks": [
+    {
+      "workers": 1,
+      "submitted": 1000,
+      "accepted": 901,
+      "rejected": 99,
+      "rejected_by_kind": {
+        "duplicate_counter": 50,
+        "duplicate_source": 49
+      },
+      "elapsed_ms": 9230.239326949231,
+      "admissions_per_second": 108.33955270047358,
+      "latency_ms": {
+        "mean": 9.209968212293461,
+        "p50": 9.252309915609658,
+        "p95": 12.215982074849308,
+        "p99": 14.686602051369846
+      },
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "accepted_without_consumed_token": 0
+      }
+    },
+    {
+      "workers": 4,
+      "submitted": 1000,
+      "accepted": 901,
+      "rejected": 99,
+      "rejected_by_kind": {
+        "duplicate_counter": 50,
+        "duplicate_source": 49
+      },
+      "elapsed_ms": 2458.3361849654466,
+      "admissions_per_second": 406.77918915880724,
+      "latency_ms": {
+        "mean": 9.779047287767753,
+        "p50": 9.283843101002276,
+        "p95": 11.888192966580391,
+        "p99": 24.950747028924525
+      },
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "accepted_without_consumed_token": 0
+      }
+    },
+    {
+      "workers": 16,
+      "submitted": 1000,
+      "accepted": 901,
+      "rejected": 99,
+      "rejected_by_kind": {
+        "duplicate_counter": 50,
+        "duplicate_source": 49
+      },
+      "elapsed_ms": 1050.0320279970765,
+      "admissions_per_second": 952.3519029295592,
+      "latency_ms": {
+        "mean": 16.538368976325728,
+        "p50": 15.187970013357699,
+        "p95": 22.4966739770025,
+        "p99": 58.426255942322314
+      },
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "accepted_without_consumed_token": 0
+      }
+    }
+  ],
+  "race_tests": [
+    {
+      "scenario": "source_token_race",
+      "workers": 16,
+      "accepted": 1,
+      "rejected": 15,
+      "latency_ms": {
+        "p50": 13.122997945174575,
+        "p95": 14.724973007105291
+      }
+    },
+    {
+      "scenario": "counter_race",
+      "workers": 16,
+      "accepted": 1,
+      "rejected": 15,
+      "latency_ms": {
+        "p50": 11.756222927942872,
+        "p95": 12.804387020878494
+      }
+    }
+  ]
+}

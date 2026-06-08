@@ -1,0 +1,51 @@
+{
+  "conversions": 5289,
+  "dataset": "UCI Bank Marketing bank-full.csv",
+  "rows": 45211,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "segments": 12,
+  "summary": [
+    {
+      "audience_mean_relative_error_ci95": 0.009940086765714744,
+      "audience_mean_relative_error_mean": 0.20851512408772732,
+      "audience_mean_relative_error_stdev": 0.01134015801550214,
+      "epsilon": 0.5,
+      "top3_conversion_regret_ci95": 0.024399136962988382,
+      "top3_conversion_regret_mean": 0.061769130311343234,
+      "top3_conversion_regret_stdev": 0.02783578002120908,
+      "top3_overlap_ci95": 0.13066666666666665,
+      "top3_overlap_mean": 0.39999999999999997,
+      "top3_overlap_stdev": 0.14907119849998599
+    },
+    {
+      "audience_mean_relative_error_ci95": 0.009871397886903754,
+      "audience_mean_relative_error_mean": 0.0491060848435448,
+      "audience_mean_relative_error_stdev": 0.011261794238808458,
+      "epsilon": 2.0,
+      "top3_conversion_regret_ci95": 0.0058968679714874,
+      "top3_conversion_regret_mean": 0.007369339098074907,
+      "top3_conversion_regret_stdev": 0.006727447774789347,
+      "top3_overlap_ci95": 0.16003332986183433,
+      "top3_overlap_mean": 0.7999999999999999,
+      "top3_overlap_stdev": 0.18257418583505539
+    },
+    {
+      "audience_mean_relative_error_ci95": 0.00039331473305877717,
+      "audience_mean_relative_error_mean": 0.00209803900901578,
+      "audience_mean_relative_error_stdev": 0.0004487135100365355,
+      "epsilon": 8.0,
+      "top3_conversion_regret_ci95": 0.0,
+      "top3_conversion_regret_mean": 0.0,
+      "top3_conversion_regret_stdev": 0.0,
+      "top3_overlap_ci95": 0.0,
+      "top3_overlap_mean": 1.0,
+      "top3_overlap_stdev": 0.0
+    }
+  ]
+}

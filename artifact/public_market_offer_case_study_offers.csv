@@ -1,0 +1,5 @@
+product,provider,marketplace,category,annual_price_usd,dimension,url,observed_date
+Thinknum: Government Contracts,BattleFin,AWS Marketplace / AWS Data Exchange,business/public-sector observations,16800,"ProductAccess, 12-month contract",https://aws.amazon.com/marketplace/pp/prodview-k3lcheknwwmj4,2026-06-08
+ChinaScope: Smart Tag,BattleFin,AWS Marketplace / AWS Data Exchange,financial insights / web observations,50000,"ProductAccess, 12-month contract",https://aws.amazon.com/marketplace/pp/prodview-pvbx46lgomqc6,2026-06-08
+Quant IP: Patent Dataset,BattleFin,AWS Marketplace / AWS Data Exchange,patent / financial insights,59000,"ProductAccess, 12-month contract",https://aws.amazon.com/marketplace/pp/prodview-cdy7bjam7vvkm,2026-06-08
+Greenwich.HR: Labor Market Intelligence Data,BattleFin,AWS Marketplace / AWS Data Exchange,labor market intelligence,85000,"ProductAccess, 12-month contract",https://aws.amazon.com/marketplace/pp/prodview-t5fvgfurgypxg,2026-06-08

@@ -1,0 +1,162 @@
+[
+  {
+    "figure": "figure1.pdf",
+    "role": "fraud taxonomy schematic retained as a prebuilt source figure",
+    "support": "paper source",
+    "exists": true,
+    "bytes": 222393,
+    "sha256": "72c87c4e09cde79c0c976b6d4b4590a6fc698f5e8a18748d9f5e4e3827d0488e"
+  },
+  {
+    "figure": "figures/architecture_diagram.pdf",
+    "role": "certificate admission architecture schematic",
+    "support": "paper source and certificate_demo.py",
+    "exists": true,
+    "bytes": 18225,
+    "sha256": "c8c5f04eee70f087521fd2d949d63eac38fe3ce0c93e3ee6bf043c83b0c0f3f4"
+  },
+  {
+    "figure": "figures/disclosure_frontier.pdf",
+    "role": "disclosure and deterrence frontier",
+    "support": "nopow_policy_selection.py; nopow_policy_selection.csv/json",
+    "exists": true,
+    "bytes": 19806,
+    "sha256": "c23b9962d9aa882d0f53e488b603260b4242471da710c483aa8a86aeaccfa238"
+  },
+  {
+    "figure": "figures/fraud_premium_heatmap.pdf",
+    "role": "valuation premium grid",
+    "support": "paper valuation formulas; supplement premium table",
+    "exists": true,
+    "bytes": 17986,
+    "sha256": "a3b610707ff4a445066f266b6c3f9151c5d54bdc47b1ee502159788de271c415"
+  },
+  {
+    "figure": "figures/valuation_curves.pdf",
+    "role": "LDP budget/value curves",
+    "support": "paper valuation formulas; supplement premium table",
+    "exists": true,
+    "bytes": 16556,
+    "sha256": "3b248b01b39227a801f9a3be2bf7f7c006f6a607f0621631eb71e34a67266d90"
+  },
+  {
+    "figure": "figures/marketing_audience_error.pdf",
+    "role": "marketing audience-count error",
+    "support": "public_marketing_workload.py; public_marketing_workload_summary.csv/json",
+    "exists": true,
+    "bytes": 16172,
+    "sha256": "99df23ea208ad026e6bf0ed5b9698082b89db444373822bc1e47c302d11b73c0"
+  },
+  {
+    "figure": "figures/marketing_reach_error.pdf",
+    "role": "marketing reach error",
+    "support": "public_marketing_workload.py; public_marketing_workload_summary.csv/json",
+    "exists": true,
+    "bytes": 15014,
+    "sha256": "2bc731b5dd5b4e924ae004ddb0d5085a0244f0e4514f37f03841ed626c4b6d4f"
+  },
+  {
+    "figure": "figures/marketing_conversion_regret.pdf",
+    "role": "marketing conversion-allocation regret",
+    "support": "public_marketing_workload.py; public_marketing_workload_summary.csv/json",
+    "exists": true,
+    "bytes": 14413,
+    "sha256": "1c17841366f3c8497007fb53b9392bd6c06b6fc456defb60d2ae13f18be045e5"
+  },
+  {
+    "figure": "figures/marketing_disclosure_frontier.pdf",
+    "role": "marketing disclosure frontier",
+    "support": "public_mechanism_comparison.py; public_mechanism_comparison.csv/json",
+    "exists": true,
+    "bytes": 14112,
+    "sha256": "9c16e52cee165d54704d4d59e8b8e20640a97d3b25b482a98835834edc45a7e2"
+  },
+  {
+    "figure": "figures/nitro_latency.pdf",
+    "role": "Nitro latency evidence",
+    "support": "supplement tables; full Nitro archive not included in minimal package",
+    "exists": true,
+    "bytes": 12466,
+    "sha256": "b2f90a3ee731ee3994196fb0962d76065e908b6c64dbbae756cedab9a80e39ad"
+  },
+  {
+    "figure": "figures/replay_confusion.pdf",
+    "role": "verifier mutation checks",
+    "support": "certificate_demo.py; certificate_demo_results.json",
+    "exists": true,
+    "bytes": 17732,
+    "sha256": "1bb0c4a06b11f0edb43b9fb128ba501df07e505e0f196e90043315a8473d76a0"
+  },
+  {
+    "figure": "figures/ic_coverage.pdf",
+    "role": "incentive-coverage summary",
+    "support": "nopow_policy_selection.py; nopow_policy_selection.csv/json",
+    "exists": true,
+    "bytes": 15553,
+    "sha256": "8f8c59605b29b01df01fded312af1533a3e55416598a0005a4184c0874ca8f0a"
+  },
+  {
+    "figure": "figures/ic_coverage_heatmap.pdf",
+    "role": "incentive-coverage heatmap",
+    "support": "nopow_policy_selection.py; nopow_policy_selection.csv/json",
+    "exists": true,
+    "bytes": 17216,
+    "sha256": "2fddb4e9a893f017e64a825fd14901372cb201c594438893dd8e8603d96d6a09"
+  },
+  {
+    "figure": "figures/market_utility.pdf",
+    "role": "market utility curve",
+    "support": "public_mechanism_comparison.py; public_mechanism_comparison.csv/json",
+    "exists": true,
+    "bytes": 21557,
+    "sha256": "40cb40c44890856dfa861a893ca4c2142a28f4d1434b765f1d2b518dd28a7356"
+  },
+  {
+    "figure": "figures/market_baselines.pdf",
+    "role": "market baseline comparison",
+    "support": "public_mechanism_comparison.py; public_mechanism_comparison.csv/json",
+    "exists": true,
+    "bytes": 17738,
+    "sha256": "4acae4001659ab106a79de1a7a5d8b50890dacd6bf3ded4c59f79541b053133d"
+  },
+  {
+    "figure": "figures/robustness_ablation.pdf",
+    "role": "robustness sensitivity",
+    "support": "nopow_policy_selection.py; supplement sensitivity table",
+    "exists": true,
+    "bytes": 16481,
+    "sha256": "a5c73b47be0e211f64f1713cb83ef5fa31e1812d7118e8113728be99e3e388ee"
+  },
+  {
+    "figure": "figures/throughput_cost.pdf",
+    "role": "throughput and cost sensitivity",
+    "support": "supplement Nitro table; certificate_store_benchmark.py",
+    "exists": true,
+    "bytes": 11760,
+    "sha256": "4174c109dcacd130dcadcc6f97ba2831fdf1e2bb8c01d2c455d72eb083bb3ea1"
+  },
+  {
+    "figure": "figures/attacker_strategy.pdf",
+    "role": "adaptive attacker strategy",
+    "support": "supplement adaptive-attacker description",
+    "exists": true,
+    "bytes": 19420,
+    "sha256": "bf0aa6afe73499f9538dcdb3a1d392b7bde16c997cac7765119a0772cc82edf9"
+  },
+  {
+    "figure": "figures/pow_calibration.pdf",
+    "role": "optional PoW calibration",
+    "support": "supplement optional-PoW table",
+    "exists": true,
+    "bytes": 14254,
+    "sha256": "1fc7faf63586122b1889d6980149310583b4682797ec5d11a416456e3ae7e5f0"
+  },
+  {
+    "figure": "figures/pow_deadline_heatmap.pdf",
+    "role": "optional PoW deadline heatmap",
+    "support": "supplement optional-PoW table",
+    "exists": true,
+    "bytes": 15678,
+    "sha256": "e0e1aed5961d35f3be3b7efb670f9ceb0a097c6f32fedd6ea6e1f76219df0c9d"
+  }
+]

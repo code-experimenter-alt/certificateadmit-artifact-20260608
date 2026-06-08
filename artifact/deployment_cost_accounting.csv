@@ -1,0 +1,8 @@
+component,unit,count,basis
+measured_enclave_runtime,USD per 1M reports,0.08,scaled Nitro DirectAttest/TEEOnly EC2 runtime component only
+kms_or_session_key_release,requests,7813,"ceil(reports / batch_size), reports=1000000, batch_size=128"
+linearizable_ledger_write,writes,2000000,source-token consumption plus terminal/counter/nonce-key admission
+certificate_row_storage,rows,1000000,accepted/rejected certificate provenance rows before aggregation
+source_token_issuance,tokens,1000000,one upstream source-admission token per admitted report slot
+audit_operation,audits,10000,audit_rate=0.01
+accepted_aggregation_input,rows,1000000,accepted-only reports consumed by LDP aggregation

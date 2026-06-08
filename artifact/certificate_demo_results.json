@@ -1,0 +1,225 @@
+{
+  "accepted_reports": 3,
+  "accepted_rows": [
+    {
+      "accepted": true,
+      "algorithm": "OUE",
+      "attestation": {
+        "chain_valid": true,
+        "user_data": {
+          "algorithm": "OUE",
+          "commitment": "4ca638a9cc5dfa157a38eac3b9c26bac28c99411287fb04f2cb2f6797bbf6daf",
+          "counter": 1,
+          "nonce": "nonce-001",
+          "pcr": "c189c18e",
+          "policy": "policy-v4",
+          "price_id": "price-gold-v4",
+          "quality_class": "gold",
+          "residual_bucket": "deposit",
+          "source": "src-marketing-cohort-7"
+        }
+      },
+      "commitment": "4ca638a9cc5dfa157a38eac3b9c26bac28c99411287fb04f2cb2f6797bbf6daf",
+      "counter": 1,
+      "nonce": "nonce-001",
+      "pcr": "c189c18e",
+      "policy": "policy-v4",
+      "price": 20.0,
+      "price_id": "price-gold-v4",
+      "quality_class": "gold",
+      "residual_bucket": "deposit",
+      "rid": "r-001",
+      "salt": "salt-001",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-marketing-cohort-7",
+      "workload": "reach"
+    },
+    {
+      "accepted": true,
+      "algorithm": "OUE",
+      "attestation": {
+        "chain_valid": true,
+        "user_data": {
+          "algorithm": "OUE",
+          "commitment": "a1ada816dc0317ed8678775207379e3d3ea6cd1062f4ac045351d9bc9bfac18c",
+          "counter": 1,
+          "nonce": "nonce-fork-a",
+          "pcr": "c189c18e",
+          "policy": "policy-v4",
+          "price_id": "price-gold-v4",
+          "quality_class": "gold",
+          "residual_bucket": "deposit",
+          "source": "src-fork-a"
+        }
+      },
+      "commitment": "a1ada816dc0317ed8678775207379e3d3ea6cd1062f4ac045351d9bc9bfac18c",
+      "counter": 1,
+      "nonce": "nonce-fork-a",
+      "pcr": "c189c18e",
+      "policy": "policy-v4",
+      "price": 20.0,
+      "price_id": "price-gold-v4",
+      "quality_class": "gold",
+      "residual_bucket": "deposit",
+      "rid": "r-fork-a",
+      "salt": "salt-001",
+      "seller": "seller-a",
+      "session": "s-fork",
+      "source": "src-fork-a",
+      "workload": "reach"
+    },
+    {
+      "accepted": true,
+      "algorithm": "OUE",
+      "attestation": {
+        "chain_valid": true,
+        "user_data": {
+          "algorithm": "OUE",
+          "commitment": "ccf5396b7e9ba178971be29a7d726b13c0f3a31fb0cd2d78aed5fda28027d862",
+          "counter": 9,
+          "nonce": "nonce-reuse-a",
+          "pcr": "c189c18e",
+          "policy": "policy-v4",
+          "price_id": "price-gold-v4",
+          "quality_class": "gold",
+          "residual_bucket": "deposit",
+          "source": "src-reuse"
+        }
+      },
+      "commitment": "ccf5396b7e9ba178971be29a7d726b13c0f3a31fb0cd2d78aed5fda28027d862",
+      "counter": 9,
+      "nonce": "nonce-reuse-a",
+      "pcr": "c189c18e",
+      "policy": "policy-v4",
+      "price": 20.0,
+      "price_id": "price-gold-v4",
+      "quality_class": "gold",
+      "residual_bucket": "deposit",
+      "rid": "r-reuse-a",
+      "salt": "salt-001",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-reuse",
+      "workload": "reach"
+    }
+  ],
+  "outcomes": {
+    "commitment_mutation": "report_commitment",
+    "fork_first": "accepted",
+    "fork_second": "stale_or_duplicate_counter",
+    "nonce_reuse": "nonce_reuse",
+    "pcr_mismatch": "pcr_allowlist",
+    "price_row_substitution": "price_row_binding",
+    "replay": "stale_or_duplicate_certificate",
+    "residual_mismatch": "residual_control",
+    "source_missing": "source_admission",
+    "source_reuse_first": "accepted",
+    "source_reuse_second": "source_token_reuse",
+    "stale_policy": "policy_version",
+    "valid": "accepted"
+  },
+  "rejected_rows": [
+    {
+      "accepted": false,
+      "counter": 1,
+      "nonce": "nonce-001",
+      "reason": "stale_or_duplicate_certificate",
+      "rid": "r-001",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-marketing-cohort-7"
+    },
+    {
+      "accepted": false,
+      "counter": 2,
+      "nonce": "nonce-002",
+      "reason": "pcr_allowlist",
+      "rid": "r-002",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-002"
+    },
+    {
+      "accepted": false,
+      "counter": 3,
+      "nonce": "nonce-003",
+      "reason": "policy_version",
+      "rid": "r-003",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-003"
+    },
+    {
+      "accepted": false,
+      "counter": 4,
+      "nonce": "nonce-004",
+      "reason": "source_admission",
+      "rid": "r-004",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "unknown-source"
+    },
+    {
+      "accepted": false,
+      "counter": 5,
+      "nonce": "nonce-001",
+      "reason": "nonce_reuse",
+      "rid": "r-005",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-005"
+    },
+    {
+      "accepted": false,
+      "counter": 6,
+      "nonce": "nonce-006",
+      "reason": "residual_control",
+      "rid": "r-006",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-006"
+    },
+    {
+      "accepted": false,
+      "counter": 7,
+      "nonce": "nonce-007",
+      "reason": "report_commitment",
+      "rid": "r-007",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-007"
+    },
+    {
+      "accepted": false,
+      "counter": 8,
+      "nonce": "nonce-008",
+      "reason": "price_row_binding",
+      "rid": "r-008",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-008"
+    },
+    {
+      "accepted": false,
+      "counter": 1,
+      "nonce": "nonce-fork-b",
+      "reason": "stale_or_duplicate_counter",
+      "rid": "r-fork-b",
+      "seller": "seller-a",
+      "session": "s-fork",
+      "source": "src-fork-b"
+    },
+    {
+      "accepted": false,
+      "counter": 10,
+      "nonce": "nonce-reuse-b",
+      "reason": "source_token_reuse",
+      "rid": "r-reuse-b",
+      "seller": "seller-a",
+      "session": "s-001",
+      "source": "src-reuse"
+    }
+  ],
+  "total_payment": 60.0
+}

@@ -1,0 +1,39 @@
+{
+  "artifact": "selective_missingness_mitigation_summary",
+  "description": "how stricter fill-rate policies reduce worst accepted selective-missingness bias",
+  "summary": [
+    {
+      "accepted_cells": 14,
+      "flagged_or_rejected_cells": 10,
+      "max_abs_bias_accepted": 0.024358974358974363,
+      "policy": "baseline_5_10",
+      "sla_reject": 0.1,
+      "sla_warn": 0.05,
+      "worst_accepted_missing_rate": 0.025,
+      "worst_accepted_negative_drop": 0.0,
+      "worst_accepted_positive_drop": 0.5
+    },
+    {
+      "accepted_cells": 6,
+      "flagged_or_rejected_cells": 18,
+      "max_abs_bias_accepted": 0.016921119592875324,
+      "policy": "strict_2_5",
+      "sla_reject": 0.05,
+      "sla_warn": 0.02,
+      "worst_accepted_missing_rate": 0.0175,
+      "worst_accepted_negative_drop": 0.0,
+      "worst_accepted_positive_drop": 0.35
+    },
+    {
+      "accepted_cells": 4,
+      "flagged_or_rejected_cells": 20,
+      "max_abs_bias_accepted": 0.009595959595959595,
+      "policy": "strict_1_3",
+      "sla_reject": 0.03,
+      "sla_warn": 0.01,
+      "worst_accepted_missing_rate": 0.01,
+      "worst_accepted_negative_drop": 0.0,
+      "worst_accepted_positive_drop": 0.2
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+scenario,isolation,accepted_rows,duplicate_accepted_sources,serialization_failures,final_token_status,elapsed_ms
+naive_read_check_write,READ COMMITTED,2,1,0,accepted,54.4436
+naive_read_check_write,SERIALIZABLE,1,0,1,accepted,53.4978

@@ -1,0 +1,10 @@
+metric,value,rows_returned
+insert_rows_per_second,156166.56093635788,1000000
+accepted_by_policy_workload_ms,491.78383802063763,4
+price_join_ms,233.98108209948987,2
+source_join_sample_ms,0.055334996432065964,21
+ledger_probe_ms,0.018879887647926807,1
+rejection_audit_ms,0.28605794068425894,4
+duplicate_source,1.0,1
+duplicate_counter,1.0,1
+concurrent_ledger_probe_per_second,56446.31603717118,10000

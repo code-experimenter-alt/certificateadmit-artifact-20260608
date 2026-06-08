@@ -1,0 +1,183 @@
+{
+  "offers": [
+    {
+      "product": "Thinknum: Government Contracts",
+      "provider": "BattleFin",
+      "marketplace": "AWS Marketplace / AWS Data Exchange",
+      "category": "business/public-sector observations",
+      "annual_price_usd": 16800,
+      "dimension": "ProductAccess, 12-month contract",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-k3lcheknwwmj4",
+      "observed_date": "2026-06-08"
+    },
+    {
+      "product": "ChinaScope: Smart Tag",
+      "provider": "BattleFin",
+      "marketplace": "AWS Marketplace / AWS Data Exchange",
+      "category": "financial insights / web observations",
+      "annual_price_usd": 50000,
+      "dimension": "ProductAccess, 12-month contract",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-pvbx46lgomqc6",
+      "observed_date": "2026-06-08"
+    },
+    {
+      "product": "Quant IP: Patent Dataset",
+      "provider": "BattleFin",
+      "marketplace": "AWS Marketplace / AWS Data Exchange",
+      "category": "patent / financial insights",
+      "annual_price_usd": 59000,
+      "dimension": "ProductAccess, 12-month contract",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-cdy7bjam7vvkm",
+      "observed_date": "2026-06-08"
+    },
+    {
+      "product": "Greenwich.HR: Labor Market Intelligence Data",
+      "provider": "BattleFin",
+      "marketplace": "AWS Marketplace / AWS Data Exchange",
+      "category": "labor market intelligence",
+      "annual_price_usd": 85000,
+      "dimension": "ProductAccess, 12-month contract",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-t5fvgfurgypxg",
+      "observed_date": "2026-06-08"
+    }
+  ],
+  "summary": {
+    "artifact": "public_market_offer_case_study",
+    "description": "public data-product offer price scale and transparent quality-haircut amounts",
+    "observed_date": "2026-06-08",
+    "limitations": [
+      "public listings are not LDP products",
+      "public listings are not evidence of fraud or over-claiming",
+      "quality haircuts are transparent scale anchors, not calibrated market damages"
+    ],
+    "offer_count": 4,
+    "price_min_usd": 16800,
+    "price_median_usd": 54500.0,
+    "price_max_usd": 85000,
+    "price_min_label": "$16,800",
+    "price_median_label": "$54,500",
+    "price_max_label": "$85,000",
+    "risk_at_25pct_min_usd": 4200.0,
+    "risk_at_25pct_median_usd": 13625.0,
+    "risk_at_25pct_max_usd": 21250.0,
+    "risk_at_25pct_min_label": "$4,200",
+    "risk_at_25pct_median_label": "$13,625",
+    "risk_at_25pct_max_label": "$21,250",
+    "offers": [
+      {
+        "product": "Thinknum: Government Contracts",
+        "provider": "BattleFin",
+        "marketplace": "AWS Marketplace / AWS Data Exchange",
+        "category": "business/public-sector observations",
+        "annual_price_usd": 16800,
+        "dimension": "ProductAccess, 12-month contract",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-k3lcheknwwmj4",
+        "observed_date": "2026-06-08"
+      },
+      {
+        "product": "ChinaScope: Smart Tag",
+        "provider": "BattleFin",
+        "marketplace": "AWS Marketplace / AWS Data Exchange",
+        "category": "financial insights / web observations",
+        "annual_price_usd": 50000,
+        "dimension": "ProductAccess, 12-month contract",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-pvbx46lgomqc6",
+        "observed_date": "2026-06-08"
+      },
+      {
+        "product": "Quant IP: Patent Dataset",
+        "provider": "BattleFin",
+        "marketplace": "AWS Marketplace / AWS Data Exchange",
+        "category": "patent / financial insights",
+        "annual_price_usd": 59000,
+        "dimension": "ProductAccess, 12-month contract",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-cdy7bjam7vvkm",
+        "observed_date": "2026-06-08"
+      },
+      {
+        "product": "Greenwich.HR: Labor Market Intelligence Data",
+        "provider": "BattleFin",
+        "marketplace": "AWS Marketplace / AWS Data Exchange",
+        "category": "labor market intelligence",
+        "annual_price_usd": 85000,
+        "dimension": "ProductAccess, 12-month contract",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-t5fvgfurgypxg",
+        "observed_date": "2026-06-08"
+      }
+    ],
+    "risk_rows": [
+      {
+        "product": "Thinknum: Government Contracts",
+        "annual_price_usd": 16800,
+        "quality_haircut_fraction": 0.1,
+        "contract_value_at_risk_usd": 1680.0
+      },
+      {
+        "product": "Thinknum: Government Contracts",
+        "annual_price_usd": 16800,
+        "quality_haircut_fraction": 0.25,
+        "contract_value_at_risk_usd": 4200.0
+      },
+      {
+        "product": "Thinknum: Government Contracts",
+        "annual_price_usd": 16800,
+        "quality_haircut_fraction": 0.5,
+        "contract_value_at_risk_usd": 8400.0
+      },
+      {
+        "product": "ChinaScope: Smart Tag",
+        "annual_price_usd": 50000,
+        "quality_haircut_fraction": 0.1,
+        "contract_value_at_risk_usd": 5000.0
+      },
+      {
+        "product": "ChinaScope: Smart Tag",
+        "annual_price_usd": 50000,
+        "quality_haircut_fraction": 0.25,
+        "contract_value_at_risk_usd": 12500.0
+      },
+      {
+        "product": "ChinaScope: Smart Tag",
+        "annual_price_usd": 50000,
+        "quality_haircut_fraction": 0.5,
+        "contract_value_at_risk_usd": 25000.0
+      },
+      {
+        "product": "Quant IP: Patent Dataset",
+        "annual_price_usd": 59000,
+        "quality_haircut_fraction": 0.1,
+        "contract_value_at_risk_usd": 5900.0
+      },
+      {
+        "product": "Quant IP: Patent Dataset",
+        "annual_price_usd": 59000,
+        "quality_haircut_fraction": 0.25,
+        "contract_value_at_risk_usd": 14750.0
+      },
+      {
+        "product": "Quant IP: Patent Dataset",
+        "annual_price_usd": 59000,
+        "quality_haircut_fraction": 0.5,
+        "contract_value_at_risk_usd": 29500.0
+      },
+      {
+        "product": "Greenwich.HR: Labor Market Intelligence Data",
+        "annual_price_usd": 85000,
+        "quality_haircut_fraction": 0.1,
+        "contract_value_at_risk_usd": 8500.0
+      },
+      {
+        "product": "Greenwich.HR: Labor Market Intelligence Data",
+        "annual_price_usd": 85000,
+        "quality_haircut_fraction": 0.25,
+        "contract_value_at_risk_usd": 21250.0
+      },
+      {
+        "product": "Greenwich.HR: Labor Market Intelligence Data",
+        "annual_price_usd": 85000,
+        "quality_haircut_fraction": 0.5,
+        "contract_value_at_risk_usd": 42500.0
+      }
+    ]
+  }
+}

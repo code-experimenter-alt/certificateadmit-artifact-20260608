@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+python3 artifact/certificate_demo.py
+python3 artifact/certificate_sql_demo.py
+python3 artifact/certificate_contract_compiler.py
+python3 artifact/certificate_admit_invariants.py
+python3 artifact/contract_equivalence_checker.py
+python3 artifact/component_ablation.py
+python3 artifact/minimal_design_ablation.py
+python3 artifact/admission_design_comparison.py
+python3 artifact/marketplace_workflow_benchmark.py
+python3 artifact/safe_view_freshness_tradeoff.py
+python3 artifact/certificate_store_benchmark.py
+python3 artifact/end_to_end_admission_benchmark.py
+python3 artifact/local_integrated_verifier_path.py
+python3 artifact/public_market_offer_case_study.py
+python3 artifact/public_marketing_workload.py
+python3 artifact/public_mechanism_comparison.py
+python3 artifact/public_websession_workload.py
+python3 artifact/nopow_policy_selection.py
+python3 artifact/residual_policy_sensitivity.py
+python3 artifact/selective_missingness_sensitivity.py
+python3 artifact/output_stat_baseline.py
+python3 artifact/deployment_cost_accounting.py
+python3 artifact/ledger_latency_sensitivity.py
+python3 artifact/integrated_deployment_envelope.py
+python3 artifact/figure_reproduction_manifest.py

@@ -1,0 +1,55 @@
+{
+  "artifact": "ledger_latency_sensitivity",
+  "description": "upper-bound throughput sensitivity for two linearizable CertificateAdmit writes per report",
+  "notes": [
+    "transparent sizing model, not a replicated-store measurement",
+    "excludes local verification CPU, aborts, retries, batching, and network fanout beyond the write latency parameter"
+  ],
+  "rows": [
+    {
+      "linearizable_write_p95_ms": 1,
+      "writes_per_report": 2,
+      "added_p95_ms_per_report": 2,
+      "single_worker_upper_bound_admits_per_s": 500.0,
+      "workers": 16,
+      "parallel_upper_bound_admits_per_s": 8000.0,
+      "ledger_writes_per_million_reports": 2000000
+    },
+    {
+      "linearizable_write_p95_ms": 5,
+      "writes_per_report": 2,
+      "added_p95_ms_per_report": 10,
+      "single_worker_upper_bound_admits_per_s": 100.0,
+      "workers": 16,
+      "parallel_upper_bound_admits_per_s": 1600.0,
+      "ledger_writes_per_million_reports": 2000000
+    },
+    {
+      "linearizable_write_p95_ms": 10,
+      "writes_per_report": 2,
+      "added_p95_ms_per_report": 20,
+      "single_worker_upper_bound_admits_per_s": 50.0,
+      "workers": 16,
+      "parallel_upper_bound_admits_per_s": 800.0,
+      "ledger_writes_per_million_reports": 2000000
+    },
+    {
+      "linearizable_write_p95_ms": 25,
+      "writes_per_report": 2,
+      "added_p95_ms_per_report": 50,
+      "single_worker_upper_bound_admits_per_s": 20.0,
+      "workers": 16,
+      "parallel_upper_bound_admits_per_s": 320.0,
+      "ledger_writes_per_million_reports": 2000000
+    },
+    {
+      "linearizable_write_p95_ms": 50,
+      "writes_per_report": 2,
+      "added_p95_ms_per_report": 100,
+      "single_worker_upper_bound_admits_per_s": 10.0,
+      "workers": 16,
+      "parallel_upper_bound_admits_per_s": 160.0,
+      "ledger_writes_per_million_reports": 2000000
+    }
+  ]
+}

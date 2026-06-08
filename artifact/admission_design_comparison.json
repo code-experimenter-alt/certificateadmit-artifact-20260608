@@ -1,0 +1,279 @@
+{
+  "artifact": "admission_design_comparison",
+  "description": "mixed admission/query workload comparing simpler designs with CertificateAdmit",
+  "parameters": {
+    "n": 5000,
+    "invalid_schedule": "5% duplicate source, 5% duplicate counter, 2.5% price-row substitutions"
+  },
+  "rows": [
+    {
+      "design": "MetadataOnly",
+      "submitted": 5000,
+      "accepted": 5000,
+      "rejected": 0,
+      "admissions_per_second": 611565.2868571313,
+      "latency_ms": {
+        "mean": 0.0014686990063637495,
+        "p50": 0.0012810342013835907,
+        "p95": 0.002642977051436901
+      },
+      "query_ms": {
+        "accepted_by_price": 0.13138202484697104,
+        "price_join": 0.27733389288187027,
+        "source_audit": 0.3029720392078161,
+        "rejection_audit": 0.006215996108949184,
+        "ledger_probe": 0.007158960215747356
+      },
+      "query_total_ms": 0.725062913261354,
+      "invariants": {
+        "duplicate_sources": 249,
+        "duplicate_counters": 250,
+        "price_swap_accepted": 125,
+        "missing_rejection_rows": 624
+      },
+      "invariant_sum": 1248,
+      "pre_reconcile_invariant_sum": 1248,
+      "reconcile": null
+    },
+    {
+      "design": "AttestationBlobOnly",
+      "submitted": 5000,
+      "accepted": 5000,
+      "rejected": 0,
+      "admissions_per_second": 340020.3532429077,
+      "latency_ms": {
+        "mean": 0.0026710474165156485,
+        "p50": 0.0023889588192105293,
+        "p95": 0.004244968295097351
+      },
+      "query_ms": {
+        "accepted_by_price": 0.1331149833276868,
+        "price_join": 0.28410402592271566,
+        "source_audit": 0.3182321088388562,
+        "rejection_audit": 0.006269896402955055,
+        "ledger_probe": 0.0077070435509085655
+      },
+      "query_total_ms": 0.7494280580431223,
+      "invariants": {
+        "duplicate_sources": 249,
+        "duplicate_counters": 250,
+        "price_swap_accepted": 125,
+        "missing_rejection_rows": 624
+      },
+      "invariant_sum": 1248,
+      "pre_reconcile_invariant_sum": 1248,
+      "reconcile": null
+    },
+    {
+      "design": "AppendOnlyCertLog",
+      "submitted": 5000,
+      "accepted": 4875,
+      "rejected": 125,
+      "admissions_per_second": 299167.18437959545,
+      "latency_ms": {
+        "mean": 0.0030923845246434213,
+        "p50": 0.0028329668566584587,
+        "p95": 0.004598055966198444
+      },
+      "query_ms": {
+        "accepted_by_price": 0.1210490008816123,
+        "price_join": 0.25950500275939703,
+        "source_audit": 0.28671708423644304,
+        "rejection_audit": 0.009144074283540249,
+        "ledger_probe": 0.006702961400151253
+      },
+      "query_total_ms": 0.6831181235611439,
+      "invariants": {
+        "duplicate_sources": 249,
+        "duplicate_counters": 250,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 499
+      },
+      "invariant_sum": 998,
+      "pre_reconcile_invariant_sum": 998,
+      "reconcile": null
+    },
+    {
+      "design": "AppendOnlyReconcileLog",
+      "submitted": 5000,
+      "accepted": 4376,
+      "rejected": 624,
+      "admissions_per_second": 362907.7761259551,
+      "latency_ms": {
+        "mean": 0.0025168363004922866,
+        "p50": 0.00227498821914196,
+        "p95": 0.003854045644402504
+      },
+      "query_ms": {
+        "accepted_by_price": 0.12582901399582624,
+        "price_join": 0.2509639598429203,
+        "source_audit": 0.45546400360763073,
+        "rejection_audit": 0.02416200004518032,
+        "ledger_probe": 0.007544993422925472
+      },
+      "query_total_ms": 0.8639639709144831,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 1248,
+      "reconcile": {
+        "reconciled_rows": 624,
+        "reconciliation_ms": 41.88380902633071
+      }
+    },
+    {
+      "design": "SafeMaterializedView",
+      "submitted": 5000,
+      "accepted": 4376,
+      "rejected": 624,
+      "admissions_per_second": 730479.5120026352,
+      "latency_ms": {
+        "mean": 0.0012359629618003964,
+        "p50": 0.0011390075087547302,
+        "p95": 0.0019799917936325073
+      },
+      "query_ms": {
+        "accepted_by_price": 0.12610794510692358,
+        "price_join": 0.24205492809414864,
+        "source_audit": 0.4010549746453762,
+        "rejection_audit": 0.023888074792921543,
+        "ledger_probe": 0.007026945240795612
+      },
+      "query_total_ms": 0.8001328678801656,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 0,
+      "reconcile": {
+        "reconciled_rows": 624,
+        "published_rows": 4376,
+        "publication_ms": 22.703460999764502,
+        "reconciliation_ms": 22.703460999764502
+      }
+    },
+    {
+      "design": "SourceTokenGate",
+      "submitted": 5000,
+      "accepted": 4751,
+      "rejected": 249,
+      "admissions_per_second": 262903.5560373158,
+      "latency_ms": {
+        "mean": 0.0035298240836709738,
+        "p50": 0.003308989107608795,
+        "p95": 0.0049979425966739655
+      },
+      "query_ms": {
+        "accepted_by_price": 0.1245460007339716,
+        "price_join": 0.25787006597965956,
+        "source_audit": 0.3188549308106303,
+        "rejection_audit": 0.012582982890307903,
+        "ledger_probe": 0.006924034096300602
+      },
+      "query_total_ms": 0.72077801451087,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 250,
+        "price_swap_accepted": 125,
+        "missing_rejection_rows": 375
+      },
+      "invariant_sum": 750,
+      "pre_reconcile_invariant_sum": 750,
+      "reconcile": null
+    },
+    {
+      "design": "TransactionalOutbox",
+      "submitted": 5000,
+      "accepted": 4626,
+      "rejected": 374,
+      "admissions_per_second": 32132.01559854178,
+      "latency_ms": {
+        "mean": 0.03105566119775176,
+        "p50": 0.02914003562182188,
+        "p95": 0.0410319771617651
+      },
+      "query_ms": {
+        "accepted_by_price": 0.11180294677615166,
+        "price_join": 0.2560709835961461,
+        "source_audit": 0.2714680740609765,
+        "rejection_audit": 0.015869038179516792,
+        "ledger_probe": 0.007239985279738903
+      },
+      "query_total_ms": 0.66245102789253,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 250,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 250
+      },
+      "invariant_sum": 500,
+      "pre_reconcile_invariant_sum": 500,
+      "reconcile": null
+    },
+    {
+      "design": "FullTransactionalOutbox",
+      "submitted": 5000,
+      "accepted": 4376,
+      "rejected": 624,
+      "admissions_per_second": 31784.931466263115,
+      "latency_ms": {
+        "mean": 0.03139311792328954,
+        "p50": 0.02996495459228754,
+        "p95": 0.043357955291867256
+      },
+      "query_ms": {
+        "accepted_by_price": 0.11551100760698318,
+        "price_join": 0.253446982242167,
+        "source_audit": 0.31899299938231707,
+        "rejection_audit": 0.0233139144256711,
+        "ledger_probe": 0.0074909767135977745
+      },
+      "query_total_ms": 0.7187558803707361,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 0,
+      "reconcile": null
+    },
+    {
+      "design": "CertificateAdmitSQLite",
+      "submitted": 5000,
+      "accepted": 4376,
+      "rejected": 624,
+      "admissions_per_second": 31616.723561461415,
+      "latency_ms": {
+        "mean": 0.03155775882769376,
+        "p50": 0.030132010579109192,
+        "p95": 0.0422940356656909
+      },
+      "query_ms": {
+        "accepted_by_price": 0.10731606744229794,
+        "price_join": 0.22629904560744762,
+        "source_audit": 0.2967769978567958,
+        "rejection_audit": 0.02077000681310892,
+        "ledger_probe": 0.007011927664279938
+      },
+      "query_total_ms": 0.6581740453839302,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "price_swap_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 0,
+      "reconcile": null
+    }
+  ]
+}

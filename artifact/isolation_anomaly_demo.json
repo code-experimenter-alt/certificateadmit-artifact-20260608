@@ -1,0 +1,30 @@
+{
+  "artifact": "isolation_anomaly_demo",
+  "description": "weak read-check-write source-token admission under READ COMMITTED versus SERIALIZABLE",
+  "rows": [
+    {
+      "accepted_rows": 2,
+      "duplicate_accepted_sources": 1,
+      "elapsed_ms": 54.44357299711555,
+      "final_token_status": "accepted",
+      "isolation": "READ COMMITTED",
+      "scenario": "naive_read_check_write",
+      "worker_results": [
+        "accepted",
+        "accepted"
+      ]
+    },
+    {
+      "accepted_rows": 1,
+      "duplicate_accepted_sources": 0,
+      "elapsed_ms": 53.4977909992449,
+      "final_token_status": "accepted",
+      "isolation": "SERIALIZABLE",
+      "scenario": "naive_read_check_write",
+      "worker_results": [
+        "accepted",
+        "serialization_failure"
+      ]
+    }
+  ]
+}

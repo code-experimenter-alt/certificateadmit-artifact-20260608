@@ -1,0 +1,121 @@
+{
+  "parameters": {
+    "n": 2000,
+    "workers": [
+      1,
+      4
+    ],
+    "fraud_rate": 0.1,
+    "duplicate_rate": 0.05,
+    "db": "sqlite-wal",
+    "policy": "policy-v5"
+  },
+  "admission_benchmarks": [
+    {
+      "workers": 1,
+      "submitted": 2000,
+      "accepted": 1801,
+      "rejected": 199,
+      "reasons": {
+        "accepted": 1801,
+        "price_row_binding": 50,
+        "source_token_reuse": 100,
+        "duplicate_counter": 49
+      },
+      "elapsed_ms": 46.9591700239107,
+      "admissions_per_second": 42590.190563028234,
+      "latency_ms": {
+        "mean": 0.022598401352297515,
+        "p50": 0.01871003769338131,
+        "p95": 0.04498602356761694,
+        "p99": 0.07881899364292622
+      },
+      "accepted_only_aggregation_ms": 1.9906950183212757,
+      "accepted_only_query_ms": 0.11802301742136478,
+      "price_join_query_ms": 0.1482999650761485,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      },
+      "db_path": "/tmp/e2e_admission_w1_lyetsytl/admission.sqlite"
+    },
+    {
+      "workers": 4,
+      "submitted": 2000,
+      "accepted": 1801,
+      "rejected": 199,
+      "reasons": {
+        "accepted": 1801,
+        "source_token_reuse": 100,
+        "duplicate_counter": 49,
+        "price_row_binding": 50
+      },
+      "elapsed_ms": 66.50799093768,
+      "admissions_per_second": 30071.574434928585,
+      "latency_ms": {
+        "mean": 0.08224890008568764,
+        "p50": 0.020434032194316387,
+        "p95": 0.048757996410131454,
+        "p99": 0.0949689419940114
+      },
+      "accepted_only_aggregation_ms": 3.0223489739000797,
+      "accepted_only_query_ms": 0.19422697369009256,
+      "price_join_query_ms": 0.23717503063380718,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      },
+      "db_path": "/tmp/e2e_admission_w4_k3l3z7gh/admission.sqlite"
+    }
+  ],
+  "race_tests": [
+    {
+      "scenario": "source_token_race",
+      "workers": 4,
+      "accepted": 1,
+      "aggregation_ms": 0.10681001003831625,
+      "rejected_by_reason": {
+        "source_token_reuse": 3
+      },
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      }
+    },
+    {
+      "scenario": "counter_race",
+      "workers": 4,
+      "accepted": 1,
+      "aggregation_ms": 0.10282197035849094,
+      "rejected_by_reason": {
+        "duplicate_counter": 3
+      },
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "unaggregated_accepted": 0,
+        "accepted_without_consumed_token": 0
+      }
+    }
+  ],
+  "crash_recovery": {
+    "scenario": "crash_recovery",
+    "missing_events": 2,
+    "recovery_mark_missing_ms": 0.058540026657283306,
+    "first_aggregation_ms": 0.08976995013654232,
+    "second_aggregation_ms": 0.016003032214939594,
+    "unaggregated_accepted": 0,
+    "aggregate_reports_after_two_replays": 1,
+    "invariant_violations": 0
+  }
+}

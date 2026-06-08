@@ -1,0 +1,247 @@
+{
+  "concurrent_ledger_probe": {
+    "elapsed_ms": 177.15948005206883,
+    "hits": 10000,
+    "probes": 10000,
+    "probes_per_second": 56446.31603717118,
+    "workers": 8
+  },
+  "conflict_checks": {
+    "duplicate_counter": "UNIQUE constraint failed",
+    "duplicate_source": "UNIQUE constraint failed"
+  },
+  "database": "SQLite temporary file",
+  "insert_rows_per_second": 156166.56093635788,
+  "insert_seconds": 6.403419490088709,
+  "notes": [
+    "synthetic certificate rows",
+    "standard-library reproducibility benchmark",
+    "not a production database benchmark"
+  ],
+  "queries": {
+    "accepted_by_policy_workload": {
+      "elapsed_ms": 491.78383802063763,
+      "plan": [
+        "SEARCH certificates USING INDEX idx_cert_policy_workload (policy=?)",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ],
+      "rows": [
+        {
+          "policy": "policy-v4",
+          "quality_class": "silver",
+          "reports": 250000,
+          "workload": "audience"
+        },
+        {
+          "policy": "policy-v4",
+          "quality_class": "gold",
+          "reports": 250000,
+          "workload": "conversion"
+        },
+        {
+          "policy": "policy-v4",
+          "quality_class": "gold",
+          "reports": 250000,
+          "workload": "lift"
+        },
+        {
+          "policy": "policy-v4",
+          "quality_class": "silver",
+          "reports": 250000,
+          "workload": "reach"
+        }
+      ]
+    },
+    "ledger_probe": {
+      "elapsed_ms": 0.018879887647926807,
+      "plan": [
+        "SEARCH certificates USING INDEX sqlite_autoindex_certificates_4 (seller=? AND session=? AND counter=?)"
+      ],
+      "rows": [
+        {
+          "accepted": 1,
+          "rid": "rid-00054321"
+        }
+      ]
+    },
+    "price_join": {
+      "elapsed_ms": 233.98108209948987,
+      "plan": [
+        "SCAN c USING INDEX idx_cert_price",
+        "SEARCH p USING INDEX sqlite_autoindex_price_table_1 (price_id=?)"
+      ],
+      "rows": [
+        {
+          "payment": 10000000.0,
+          "price_id": "price-gold-v4",
+          "reports": 500000
+        },
+        {
+          "payment": 6000000.0,
+          "price_id": "price-silver-v4",
+          "reports": 500000
+        }
+      ]
+    },
+    "rejection_audit": {
+      "elapsed_ms": 0.28605794068425894,
+      "plan": [
+        "SCAN rejections USING COVERING INDEX idx_reject_reason"
+      ],
+      "rows": [
+        {
+          "failures": 2500,
+          "reason": "pcr_allowlist"
+        },
+        {
+          "failures": 2500,
+          "reason": "policy_version"
+        },
+        {
+          "failures": 2500,
+          "reason": "price_row_binding"
+        },
+        {
+          "failures": 2500,
+          "reason": "source_token_reuse"
+        }
+      ]
+    },
+    "source_join_sample": {
+      "elapsed_ms": 0.055334996432065964,
+      "plan": [
+        "SEARCH c USING INDEX idx_cert_source (source>? AND source<?)",
+        "SEARCH s USING INDEX sqlite_autoindex_source_tokens_1 (source=?)"
+      ],
+      "rows": [
+        {
+          "cohort": "cohort-08",
+          "rid": "rid-00001000",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-000"
+        },
+        {
+          "cohort": "cohort-09",
+          "rid": "rid-00001001",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-001"
+        },
+        {
+          "cohort": "cohort-10",
+          "rid": "rid-00001002",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-002"
+        },
+        {
+          "cohort": "cohort-11",
+          "rid": "rid-00001003",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-003"
+        },
+        {
+          "cohort": "cohort-12",
+          "rid": "rid-00001004",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-004"
+        },
+        {
+          "cohort": "cohort-13",
+          "rid": "rid-00001005",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-005"
+        },
+        {
+          "cohort": "cohort-14",
+          "rid": "rid-00001006",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-006"
+        },
+        {
+          "cohort": "cohort-15",
+          "rid": "rid-00001007",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-007"
+        },
+        {
+          "cohort": "cohort-16",
+          "rid": "rid-00001008",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-008"
+        },
+        {
+          "cohort": "cohort-17",
+          "rid": "rid-00001009",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-009"
+        },
+        {
+          "cohort": "cohort-18",
+          "rid": "rid-00001010",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-010"
+        },
+        {
+          "cohort": "cohort-19",
+          "rid": "rid-00001011",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-011"
+        },
+        {
+          "cohort": "cohort-20",
+          "rid": "rid-00001012",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-012"
+        },
+        {
+          "cohort": "cohort-21",
+          "rid": "rid-00001013",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-013"
+        },
+        {
+          "cohort": "cohort-22",
+          "rid": "rid-00001014",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-014"
+        },
+        {
+          "cohort": "cohort-23",
+          "rid": "rid-00001015",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-015"
+        },
+        {
+          "cohort": "cohort-24",
+          "rid": "rid-00001016",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-016"
+        },
+        {
+          "cohort": "cohort-25",
+          "rid": "rid-00001017",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-017"
+        },
+        {
+          "cohort": "cohort-26",
+          "rid": "rid-00001018",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-018"
+        },
+        {
+          "cohort": "cohort-27",
+          "rid": "rid-00001019",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-019"
+        },
+        {
+          "cohort": "cohort-28",
+          "rid": "rid-00001020",
+          "sampling_contract": "sampling-contract-2026",
+          "seller": "seller-020"
+        }
+      ]
+    }
+  },
+  "rows": 1000000
+}

@@ -1,0 +1,12 @@
+id,type,condition,implementation_hook
+P0_durable_receipt,predicate,"The verifier durably records receive id and payload hash before parsing, verification, or rejection.",AttemptInbox insert or equivalent inbox key before host-code validation
+P1_attested_execution_commitment,predicate,The report commitment and certificate fields are bound to an allowed attested execution identity.,"attestation verifier, PCR/algorithm allow-list, commitment recomputation"
+P2_source_token_consumption,predicate,An issued source token is conditionally consumed at most once for an accepted report.,SourceToken compare/update or serializable row update
+P3_separate_uniqueness,predicate,"Terminal, source, counter, and nonce keys are separately unique before acceptance.","PK(rid,nonce), unique source, unique seller/session/counter, unique seller/session/nonce"
+P4_policy_price_join,predicate,The accepted row joins the attested policy to an allowed price row before visibility.,transaction-time PricePolicy join or equivalent conditional write
+P5_disclosure_rule,predicate,Exact/private-exact/sealed disclosure state satisfies the selected market policy.,"exact budget check, confidential-verifier check, or class-map check"
+P6_residual_evidence,predicate,"Sealed-class rows include required deposit, audit, rejection, deadline, or optional rate-limit evidence.",residual-policy table and evidence predicate
+P7_idempotent_recovery,predicate,Retries and crashes cannot expose partial accepted rows or duplicate queue entries.,"savepoints, idempotent rejection keys, consumed-missing recovery"
+V1_accepted_only_visibility,visibility,"Estimators, payment joins, and buyer queries see only rows that passed every admission predicate.",AggregateQueue insert after all checks or validated materialized view
+V2_queryable_rejections,visibility,Every malformed durable receive or parsed deterministic admission failure has a queryable rejection reason and no queue entry.,RejectLog row keyed by terminal key for parsed failures or receive id for malformed attempts
+V3_consumed_missing_accounting,visibility,Expired precommit or release attempts are counted for fill-rate and never enter aggregation.,consumed_missing lifecycle state and fill-rate denominator

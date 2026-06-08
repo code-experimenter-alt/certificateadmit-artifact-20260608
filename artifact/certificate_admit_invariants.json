@@ -1,0 +1,137 @@
+{
+  "artifact": "certificate_admit_invariants",
+  "contract_equivalence_conditions": [
+    {
+      "condition": "The verifier durably records receive id and payload hash before parsing, verification, or rejection.",
+      "id": "P0_durable_receipt",
+      "implementation_hook": "AttemptInbox insert or equivalent inbox key before host-code validation",
+      "type": "predicate"
+    },
+    {
+      "condition": "The report commitment and certificate fields are bound to an allowed attested execution identity.",
+      "id": "P1_attested_execution_commitment",
+      "implementation_hook": "attestation verifier, PCR/algorithm allow-list, commitment recomputation",
+      "type": "predicate"
+    },
+    {
+      "condition": "An issued source token is conditionally consumed at most once for an accepted report.",
+      "id": "P2_source_token_consumption",
+      "implementation_hook": "SourceToken compare/update or serializable row update",
+      "type": "predicate"
+    },
+    {
+      "condition": "Terminal, source, counter, and nonce keys are separately unique before acceptance.",
+      "id": "P3_separate_uniqueness",
+      "implementation_hook": "PK(rid,nonce), unique source, unique seller/session/counter, unique seller/session/nonce",
+      "type": "predicate"
+    },
+    {
+      "condition": "The accepted row joins the attested policy to an allowed price row before visibility.",
+      "id": "P4_policy_price_join",
+      "implementation_hook": "transaction-time PricePolicy join or equivalent conditional write",
+      "type": "predicate"
+    },
+    {
+      "condition": "Exact/private-exact/sealed disclosure state satisfies the selected market policy.",
+      "id": "P5_disclosure_rule",
+      "implementation_hook": "exact budget check, confidential-verifier check, or class-map check",
+      "type": "predicate"
+    },
+    {
+      "condition": "Sealed-class rows include required deposit, audit, rejection, deadline, or optional rate-limit evidence.",
+      "id": "P6_residual_evidence",
+      "implementation_hook": "residual-policy table and evidence predicate",
+      "type": "predicate"
+    },
+    {
+      "condition": "Retries and crashes cannot expose partial accepted rows or duplicate queue entries.",
+      "id": "P7_idempotent_recovery",
+      "implementation_hook": "savepoints, idempotent rejection keys, consumed-missing recovery",
+      "type": "predicate"
+    },
+    {
+      "condition": "Estimators, payment joins, and buyer queries see only rows that passed every admission predicate.",
+      "id": "V1_accepted_only_visibility",
+      "implementation_hook": "AggregateQueue insert after all checks or validated materialized view",
+      "type": "visibility"
+    },
+    {
+      "condition": "Every malformed durable receive or parsed deterministic admission failure has a queryable rejection reason and no queue entry.",
+      "id": "V2_queryable_rejections",
+      "implementation_hook": "RejectLog row keyed by terminal key for parsed failures or receive id for malformed attempts",
+      "type": "visibility"
+    },
+    {
+      "condition": "Expired precommit or release attempts are counted for fill-rate and never enter aggregation.",
+      "id": "V3_consumed_missing_accounting",
+      "implementation_hook": "consumed_missing lifecycle state and fill-rate denominator",
+      "type": "visibility"
+    }
+  ],
+  "description": "visible-state lifecycle invariants and contract-equivalence conditions for CertificateAdmit",
+  "invariants": [
+    {
+      "condition": "Every visible accepted, rejected, or consumed-missing outcome is linked to a durable receive record.",
+      "covered_by": "durable-receipt contract, malformed/crash recovery row",
+      "id": "I0_durable_receipt",
+      "state": "AttemptInbox, CertLedger, RejectLog",
+      "violation_query": "abstract predicate: terminal or reject row has no prior AttemptInbox receive id"
+    },
+    {
+      "condition": "Each source token appears in at most one accepted queue row.",
+      "covered_by": "source-token race, duplicate-source ablation",
+      "id": "I1_source_once",
+      "state": "SourceToken, AggregateQueue",
+      "violation_query": "SELECT src FROM AggregateQueue GROUP BY src HAVING COUNT(*)>1;"
+    },
+    {
+      "condition": "No two accepted rows share a terminal, counter, or nonce freshness key.",
+      "covered_by": "counter race, replay/fork mutation tests",
+      "id": "I2_separate_freshness_keys",
+      "state": "CertLedger",
+      "violation_query": "GROUP BY rid,nonce OR seller,session,ctr OR seller,session,nonce HAVING COUNT(*)>1"
+    },
+    {
+      "condition": "Every accepted row uses an allowed policy and price row checked at admission.",
+      "covered_by": "price-substitution mutation, policy churn workload",
+      "id": "I3_policy_price_bound",
+      "state": "CertLedger, PricePolicy",
+      "violation_query": "SELECT accepted.* FROM accepted LEFT JOIN PricePolicy USING(policy,priceID) WHERE PricePolicy.priceID IS NULL;"
+    },
+    {
+      "condition": "The accepted report commitment recomputes from the submitted report and certificate fields.",
+      "covered_by": "commitment mutation test",
+      "id": "I4_commitment_bound",
+      "state": "CertLedger",
+      "violation_query": "abstract predicate: Hash(y,u,seller,src,sid,W) != commitment"
+    },
+    {
+      "condition": "A deterministic rejection has a queryable reason and no aggregate queue row.",
+      "covered_by": "rejection audit, invalid schedule workload",
+      "id": "I5_reject_no_queue",
+      "state": "RejectLog, AggregateQueue",
+      "violation_query": "SELECT rid,nonce FROM RejectLog INTERSECT SELECT rid,nonce FROM AggregateQueue;"
+    },
+    {
+      "condition": "Expired precommit/released rows become consumed-missing and never enter the queue.",
+      "covered_by": "crash-before-release, crash-after-release recovery",
+      "id": "I6_missing_no_queue",
+      "state": "CertLedger, AggregateQueue",
+      "violation_query": "SELECT rid,nonce FROM CertLedger WHERE status='consumed_missing' INTERSECT SELECT rid,nonce FROM AggregateQueue;"
+    },
+    {
+      "condition": "Every aggregate queue row has an accepted certificate row with the same terminal key.",
+      "covered_by": "accepted-only queue invariant",
+      "id": "I7_queue_accepted_only",
+      "state": "CertLedger, AggregateQueue",
+      "violation_query": "SELECT q.rid,q.nonce FROM AggregateQueue q LEFT JOIN CertLedger c ON q.rid=c.rid AND q.nonce=c.nonce AND c.status='accepted' WHERE c.rid IS NULL;"
+    },
+    {
+      "condition": "Exact/private-exact rows satisfy the realized-budget predicate; sealed rows satisfy class, price-row, and residual-evidence predicates.",
+      "covered_by": "exact mismatch, class mismatch, residual mismatch tests",
+      "id": "I8_disclosure_mode",
+      "state": "CertLedger, policy",
+      "violation_query": "abstract predicate over mode, q, realized budget, class map, residual evidence"
+    }
+  ]
+}

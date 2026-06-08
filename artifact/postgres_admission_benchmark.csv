@@ -1,0 +1,7 @@
+kind,workers,submitted,accepted,rejected,admissions_per_second,p50_ms,p95_ms,p99_ms,aggregation_ms,invariant_violations
+postgres_admission,1,100000,90001,9999,7565.64,0.1096,0.2460,0.3699,1273.8610,0
+postgres_admission,4,100000,90001,9999,7257.97,0.4948,0.9272,1.2040,1181.4544,0
+postgres_admission,16,100000,90001,9999,4443.31,3.3007,5.7067,8.6263,1235.5827,0
+postgres_source_token_race,32,32,1,31,,,,,1.4197,0
+postgres_counter_race,32,32,1,31,,,,,1.4511,0
+postgres_crash_recovery,,,1,2,,,,,0.3832,0

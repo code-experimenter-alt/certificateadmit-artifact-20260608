@@ -1,0 +1,121 @@
+{
+  "artifact": "marketplace_workflow_benchmark",
+  "description": "multi-seller marketplace admission/query workflow with payments, policy churn, rejection disputes, and aggregation windows",
+  "parameters": {
+    "n": 5000,
+    "sellers": 12,
+    "workloads": [
+      "audience",
+      "reach",
+      "conversion"
+    ],
+    "quality_classes": [
+      "silver",
+      "gold"
+    ],
+    "invalid_schedule": "duplicate source, duplicate counter, stale policy, and price-row substitutions"
+  },
+  "rows": [
+    {
+      "design": "AppendOnlyReconcileLog",
+      "submitted": 5000,
+      "accepted": 4556,
+      "rejected": 444,
+      "admissions_per_second": 270503.97112615476,
+      "latency_ms": {
+        "mean": 0.003373028035275638,
+        "p50": 0.0029189977794885635,
+        "p95": 0.005512963980436325
+      },
+      "query_ms": {
+        "windowed_aggregation": 0.23547199089080095,
+        "seller_payment_join": 0.4155040951445699,
+        "rejection_disputes": 0.030135037377476692,
+        "policy_churn_audit": 1.0848930105566978,
+        "source_fill_rate": 0.7288589840754867,
+        "ledger_probe": 0.011699041351675987
+      },
+      "query_total_ms": 2.506562159396708,
+      "payment_after_reconcile": 3872.2999999999997,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "invalid_price_policy_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 888,
+      "reconcile": {
+        "reconciled_rows": 444,
+        "reconciliation_ms": 6.355341989547014
+      }
+    },
+    {
+      "design": "SafeMaterializedView",
+      "submitted": 5000,
+      "accepted": 4556,
+      "rejected": 444,
+      "admissions_per_second": 648062.9433700936,
+      "latency_ms": {
+        "mean": 0.0013935868395492435,
+        "p50": 0.0012560049071907997,
+        "p95": 0.002227025106549263
+      },
+      "query_ms": {
+        "windowed_aggregation": 0.22779498249292374,
+        "seller_payment_join": 0.4736250266432762,
+        "rejection_disputes": 0.0331290066242218,
+        "policy_churn_audit": 1.225933083333075,
+        "source_fill_rate": 0.7839730242267251,
+        "ledger_probe": 0.014004996046423912
+      },
+      "query_total_ms": 2.758460119366646,
+      "payment_after_reconcile": 3872.2999999999997,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "invalid_price_policy_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 0,
+      "reconcile": {
+        "reconciled_rows": 444,
+        "published_rows": 4556,
+        "publication_ms": 30.868337024003267,
+        "reconciliation_ms": 30.868337024003267
+      }
+    },
+    {
+      "design": "CertificateAdmitSQLite",
+      "submitted": 5000,
+      "accepted": 4556,
+      "rejected": 444,
+      "admissions_per_second": 28600.21150693344,
+      "latency_ms": {
+        "mean": 0.034865733794867994,
+        "p50": 0.03039906732738018,
+        "p95": 0.04839594475924969
+      },
+      "query_ms": {
+        "windowed_aggregation": 0.25208108127117157,
+        "seller_payment_join": 0.49415603280067444,
+        "rejection_disputes": 0.034569064155220985,
+        "policy_churn_audit": 1.316032954491675,
+        "source_fill_rate": 0.8041829569265246,
+        "ledger_probe": 0.014938064850866795
+      },
+      "query_total_ms": 2.9159601544961333,
+      "payment_after_reconcile": 3872.2999999999997,
+      "invariants": {
+        "duplicate_sources": 0,
+        "duplicate_counters": 0,
+        "invalid_price_policy_accepted": 0,
+        "missing_rejection_rows": 0
+      },
+      "invariant_sum": 0,
+      "pre_reconcile_invariant_sum": 0,
+      "reconcile": null
+    }
+  ]
+}

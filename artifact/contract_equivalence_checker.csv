@@ -1,0 +1,11 @@
+design,P0_durable_receipt,P1_attested_execution_commitment,P2_source_token_consumption,P3_separate_uniqueness,P4_policy_price_join,P5_disclosure_rule,P6_residual_evidence,P7_idempotent_recovery,V1_accepted_only_visibility,V2_queryable_rejections,V3_consumed_missing_accounting,covered_conditions,total_conditions,contract_equivalent,remaining_gap
+NoVerify metadata,0,0,0,0,0,0,0,0,0,0,0,0,11,0,"no durable receipt, executable binding, source consumption, freshness, price join, rejection provenance, or accepted-only gate"
+Attestation blob only,0,1,0,0,0,0,0,0,0,0,0,1,11,0,"attested origin is recorded, but source reuse, replay/fork, price substitution, rejection, and missingness remain outside admission"
+Append-only certificate log,0,1,0,0,1,0,0,0,0,1,0,3,11,0,"audit trail can expose failures, but invalid rows may be visible before uniqueness and lifecycle checks complete"
+Append-only + reconciliation,0,1,1,1,1,0,0,0,0,1,0,5,11,0,eventual repair does not satisfy accepted-only visibility or crash/retry lifecycle semantics during the unsafe window
+Safe materialized view,1,1,1,1,1,1,1,1,1,1,1,11,11,1,contract-equivalent when durable receipt precedes validation and publication waits for a validated watermark with consumed-missing accounting
+Source-token gate only,0,0,1,0,0,0,0,0,1,1,1,4,11,0,"prevents duplicate sources but does not bind executable identity, report commitment, counter/nonce freshness, policy price, or disclosure evidence"
+Partial attested outbox,0,1,1,0,1,0,0,0,1,1,0,5,11,0,"atomic accepted-event delivery is insufficient without separate counter/nonce uniqueness, disclosure/residual checks, and recovery/missingness lifecycle"
+Full attested outbox,1,1,1,1,1,1,1,1,1,1,1,11,11,1,contract-equivalent implementation when the outbox transaction enforces every P/V condition before event publication
+CertificateAdmit SQL,1,1,1,1,1,1,1,1,1,1,1,11,11,1,contract-equivalent serializable SQL implementation
+Linearizable KV CertificateAdmit,1,1,1,1,1,1,1,1,1,1,1,11,11,1,contract-equivalent conditional-write implementation

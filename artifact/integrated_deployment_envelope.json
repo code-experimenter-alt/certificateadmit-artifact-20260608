@@ -1,0 +1,157 @@
+{
+  "artifact": "integrated_deployment_envelope",
+  "deployment_units_per_million": [
+    {
+      "basis": "scaled Nitro DirectAttest/TEEOnly EC2 runtime component only",
+      "component": "measured_enclave_runtime",
+      "count": 0.08,
+      "unit": "USD per 1M reports"
+    },
+    {
+      "basis": "ceil(reports / batch_size), reports=1000000, batch_size=128",
+      "component": "kms_or_session_key_release",
+      "count": 7813,
+      "unit": "requests"
+    },
+    {
+      "basis": "source-token consumption plus terminal/counter/nonce-key admission",
+      "component": "linearizable_ledger_write",
+      "count": 2000000,
+      "unit": "writes"
+    },
+    {
+      "basis": "accepted/rejected certificate provenance rows before aggregation",
+      "component": "certificate_row_storage",
+      "count": 1000000,
+      "unit": "rows"
+    },
+    {
+      "basis": "one upstream source-admission token per admitted report slot",
+      "component": "source_token_issuance",
+      "count": 1000000,
+      "unit": "tokens"
+    },
+    {
+      "basis": "audit_rate=0.01",
+      "component": "audit_operation",
+      "count": 10000,
+      "unit": "audits"
+    },
+    {
+      "basis": "accepted-only reports consumed by LDP aggregation",
+      "component": "accepted_aggregation_input",
+      "count": 1000000,
+      "unit": "rows"
+    }
+  ],
+  "description": "component-derived deployment envelope, not a live integrated cloud benchmark",
+  "inputs": {
+    "etcd_16_client_p95_ms": 22.4966739770025,
+    "etcd_16_client_reports_per_s": 952.3519029295592,
+    "kms_release_requests_per_m": 7813,
+    "ledger_writes_per_m": 2000000,
+    "recorded_nitro_p95_ms": 18.9,
+    "recorded_nitro_reports_per_s": 666.6,
+    "recorded_nitro_runtime_usd_per_m": 0.08,
+    "sqlite_32_worker_p95_ms": 0.048757996410131454,
+    "sqlite_32_worker_reports_per_s": 30071.574434928585
+  },
+  "rows": [
+    {
+      "bottleneck_component": "sqlite_admission",
+      "bottleneck_reports_per_s": 30071.574,
+      "component_derived_p95_ms": 0.049,
+      "evidence": "artifact/end_to_end_admission_benchmark.py, 32 workers",
+      "limitation": "single-node reproducibility backend; no Nitro, KMS, or replicated ledger",
+      "p95_parts": {
+        "sqlite_admission": 0.048757996410131454
+      },
+      "path": "local_sql_admission_only",
+      "throughput_parts": {
+        "sqlite_admission": 30071.574434928585
+      }
+    },
+    {
+      "bottleneck_component": "etcd_compare_put",
+      "bottleneck_reports_per_s": 952.352,
+      "component_derived_p95_ms": 22.497,
+      "evidence": "artifact/etcd_linearizable_admission_benchmark.py, 16 clients",
+      "limitation": "local three-node etcd using etcdctl subprocesses; no Nitro or KMS",
+      "p95_parts": {
+        "etcd_compare_put": 22.4966739770025
+      },
+      "path": "local_three_node_etcd_admission",
+      "throughput_parts": {
+        "etcd_compare_put": 952.3519029295592
+      }
+    },
+    {
+      "bottleneck_component": "recorded_nitro_oracle",
+      "bottleneck_reports_per_s": 666.6,
+      "component_derived_p95_ms": 18.949,
+      "evidence": "recorded scaled Nitro p95 plus SQLite admission artifact",
+      "limitation": "component-derived envelope; no live KMS or external ledger in same run",
+      "p95_parts": {
+        "recorded_nitro_oracle": 18.9,
+        "sqlite_admission": 0.048757996410131454
+      },
+      "path": "nitro_plus_sql_admission_envelope",
+      "throughput_parts": {
+        "recorded_nitro_oracle": 666.6,
+        "sqlite_admission": 30071.574434928585
+      }
+    },
+    {
+      "bottleneck_component": "recorded_nitro_oracle",
+      "bottleneck_reports_per_s": 666.6,
+      "component_derived_p95_ms": 41.397,
+      "evidence": "recorded scaled Nitro p95 plus local three-node etcd check",
+      "limitation": "component-derived envelope; etcd run is local and uses subprocess clients",
+      "p95_parts": {
+        "etcd_compare_put": 22.4966739770025,
+        "recorded_nitro_oracle": 18.9
+      },
+      "path": "nitro_plus_linearizable_ledger_envelope",
+      "throughput_parts": {
+        "etcd_compare_put": 952.3519029295592,
+        "recorded_nitro_oracle": 666.6
+      }
+    },
+    {
+      "bottleneck_component": "recorded_nitro_oracle",
+      "bottleneck_reports_per_s": 666.6,
+      "component_derived_p95_ms": 46.397,
+      "evidence": "recorded Nitro p95, local etcd check, and explicit KMS latency parameter",
+      "limitation": "what-if envelope for KMS release latency; not a measured AWS KMS integration",
+      "p95_parts": {
+        "etcd_compare_put": 22.4966739770025,
+        "kms_session_release": 5.0,
+        "recorded_nitro_oracle": 18.9
+      },
+      "path": "nitro_kms5_linearizable_ledger_envelope",
+      "throughput_parts": {
+        "etcd_compare_put": 952.3519029295592,
+        "kms_batch_release_upper": 25600.0,
+        "recorded_nitro_oracle": 666.6
+      }
+    },
+    {
+      "bottleneck_component": "recorded_nitro_oracle",
+      "bottleneck_reports_per_s": 666.6,
+      "component_derived_p95_ms": 66.397,
+      "evidence": "recorded Nitro p95, local etcd check, and explicit KMS latency parameter",
+      "limitation": "what-if envelope for KMS release latency; not a measured AWS KMS integration",
+      "p95_parts": {
+        "etcd_compare_put": 22.4966739770025,
+        "kms_session_release": 25.0,
+        "recorded_nitro_oracle": 18.9
+      },
+      "path": "nitro_kms25_linearizable_ledger_envelope",
+      "throughput_parts": {
+        "etcd_compare_put": 952.3519029295592,
+        "kms_batch_release_upper": 5120.0,
+        "recorded_nitro_oracle": 666.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "accepted_by_policy": [
+    {
+      "policy": "policy-v4",
+      "quality_class": "gold",
+      "reports": 3,
+      "workload": "reach"
+    }
+  ],
+  "ledger_key_probe": [
+    {
+      "accepted": 1,
+      "rid": "r-001"
+    }
+  ],
+  "price_join": [
+    {
+      "payment": 60.0,
+      "price_id": "price-gold-v4",
+      "seller": "seller-a",
+      "workload": "reach"
+    }
+  ],
+  "rejection_audit": [
+    {
+      "failures": 1,
+      "reason": "nonce_reuse"
+    },
+    {
+      "failures": 1,
+      "reason": "pcr_allowlist"
+    },
+    {
+      "failures": 1,
+      "reason": "policy_version"
+    },
+    {
+      "failures": 1,
+      "reason": "price_row_binding"
+    },
+    {
+      "failures": 1,
+      "reason": "report_commitment"
+    },
+    {
+      "failures": 1,
+      "reason": "residual_control"
+    },
+    {
+      "failures": 1,
+      "reason": "source_admission"
+    },
+    {
+      "failures": 1,
+      "reason": "source_token_reuse"
+    },
+    {
+      "failures": 1,
+      "reason": "stale_or_duplicate_certificate"
+    },
+    {
+      "failures": 1,
+      "reason": "stale_or_duplicate_counter"
+    }
+  ],
+  "source_join": [
+    {
+      "cohort": "cohort-7",
+      "price_id": "price-gold-v4",
+      "rid": "r-001",
+      "sampling_contract": "sampling-contract-2026",
+      "seller": "seller-a"
+    },
+    {
+      "cohort": "cohort-7",
+      "price_id": "price-gold-v4",
+      "rid": "r-fork-a",
+      "sampling_contract": "sampling-contract-2026",
+      "seller": "seller-a"
+    },
+    {
+      "cohort": "cohort-7",
+      "price_id": "price-gold-v4",
+      "rid": "r-reuse-a",
+      "sampling_contract": "sampling-contract-2026",
+      "seller": "seller-a"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "artifact": "contract_equivalence_checker",
+  "conditions": [
+    {
+      "id": "P0_durable_receipt",
+      "meaning": "receive id and payload hash are durable before parsing, verification, or rejection"
+    },
+    {
+      "id": "P1_attested_execution_commitment",
+      "meaning": "report commitment and certificate fields are bound to allowed attested execution"
+    },
+    {
+      "id": "P2_source_token_consumption",
+      "meaning": "issued source token is conditionally consumed at most once"
+    },
+    {
+      "id": "P3_separate_uniqueness",
+      "meaning": "terminal, source, counter, and nonce keys are separately unique"
+    },
+    {
+      "id": "P4_policy_price_join",
+      "meaning": "accepted row joins an allowed policy and price row before visibility"
+    },
+    {
+      "id": "P5_disclosure_rule",
+      "meaning": "exact, private-exact, or restricted-disclosure rule is checked"
+    },
+    {
+      "id": "P6_residual_evidence",
+      "meaning": "restricted-disclosure rows include required residual-control evidence"
+    },
+    {
+      "id": "P7_idempotent_recovery",
+      "meaning": "retries and crashes cannot expose partial accepted rows or duplicate queue entries"
+    },
+    {
+      "id": "V1_accepted_only_visibility",
+      "meaning": "payment, buyer, and estimator queries see only rows that passed admission"
+    },
+    {
+      "id": "V2_queryable_rejections",
+      "meaning": "malformed durable receives and parsed deterministic failures have queryable rejection reasons and no queue entry"
+    },
+    {
+      "id": "V3_consumed_missing_accounting",
+      "meaning": "expired precommit or release attempts are counted and excluded from aggregation"
+    }
+  ],
+  "description": "deterministic design-by-predicate coverage table for P0--P7 and V1--V3",
+  "rows": [
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 0,
+      "P2_source_token_consumption": 0,
+      "P3_separate_uniqueness": 0,
+      "P4_policy_price_join": 0,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 0,
+      "V2_queryable_rejections": 0,
+      "V3_consumed_missing_accounting": 0,
+      "contract_equivalent": 0,
+      "covered_conditions": 0,
+      "design": "NoVerify metadata",
+      "remaining_gap": "no durable receipt, executable binding, source consumption, freshness, price join, rejection provenance, or accepted-only gate",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 0,
+      "P3_separate_uniqueness": 0,
+      "P4_policy_price_join": 0,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 0,
+      "V2_queryable_rejections": 0,
+      "V3_consumed_missing_accounting": 0,
+      "contract_equivalent": 0,
+      "covered_conditions": 1,
+      "design": "Attestation blob only",
+      "remaining_gap": "attested origin is recorded, but source reuse, replay/fork, price substitution, rejection, and missingness remain outside admission",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 0,
+      "P3_separate_uniqueness": 0,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 0,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 0,
+      "contract_equivalent": 0,
+      "covered_conditions": 3,
+      "design": "Append-only certificate log",
+      "remaining_gap": "audit trail can expose failures, but invalid rows may be visible before uniqueness and lifecycle checks complete",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 1,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 0,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 0,
+      "contract_equivalent": 0,
+      "covered_conditions": 5,
+      "design": "Append-only + reconciliation",
+      "remaining_gap": "eventual repair does not satisfy accepted-only visibility or crash/retry lifecycle semantics during the unsafe window",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 1,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 1,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 1,
+      "P6_residual_evidence": 1,
+      "P7_idempotent_recovery": 1,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 1,
+      "contract_equivalent": 1,
+      "covered_conditions": 11,
+      "design": "Safe materialized view",
+      "remaining_gap": "contract-equivalent when durable receipt precedes validation and publication waits for a validated watermark with consumed-missing accounting",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 0,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 0,
+      "P4_policy_price_join": 0,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 1,
+      "contract_equivalent": 0,
+      "covered_conditions": 4,
+      "design": "Source-token gate only",
+      "remaining_gap": "prevents duplicate sources but does not bind executable identity, report commitment, counter/nonce freshness, policy price, or disclosure evidence",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 0,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 0,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 0,
+      "P6_residual_evidence": 0,
+      "P7_idempotent_recovery": 0,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 0,
+      "contract_equivalent": 0,
+      "covered_conditions": 5,
+      "design": "Partial attested outbox",
+      "remaining_gap": "atomic accepted-event delivery is insufficient without separate counter/nonce uniqueness, disclosure/residual checks, and recovery/missingness lifecycle",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 1,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 1,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 1,
+      "P6_residual_evidence": 1,
+      "P7_idempotent_recovery": 1,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 1,
+      "contract_equivalent": 1,
+      "covered_conditions": 11,
+      "design": "Full attested outbox",
+      "remaining_gap": "contract-equivalent implementation when the outbox transaction enforces every P/V condition before event publication",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 1,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 1,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 1,
+      "P6_residual_evidence": 1,
+      "P7_idempotent_recovery": 1,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 1,
+      "contract_equivalent": 1,
+      "covered_conditions": 11,
+      "design": "CertificateAdmit SQL",
+      "remaining_gap": "contract-equivalent serializable SQL implementation",
+      "total_conditions": 11
+    },
+    {
+      "P0_durable_receipt": 1,
+      "P1_attested_execution_commitment": 1,
+      "P2_source_token_consumption": 1,
+      "P3_separate_uniqueness": 1,
+      "P4_policy_price_join": 1,
+      "P5_disclosure_rule": 1,
+      "P6_residual_evidence": 1,
+      "P7_idempotent_recovery": 1,
+      "V1_accepted_only_visibility": 1,
+      "V2_queryable_rejections": 1,
+      "V3_consumed_missing_accounting": 1,
+      "contract_equivalent": 1,
+      "covered_conditions": 11,
+      "design": "Linearizable KV CertificateAdmit",
+      "remaining_gap": "contract-equivalent conditional-write implementation",
+      "total_conditions": 11
+    }
+  ]
+}

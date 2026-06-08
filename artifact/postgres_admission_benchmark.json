@@ -1,0 +1,152 @@
+{
+  "admission_benchmarks": [
+    {
+      "accepted": 90001,
+      "accepted_only_aggregation_ms": 1273.8609670195729,
+      "accepted_only_query_ms": 14.21545201446861,
+      "admissions_per_second": 7565.644136187485,
+      "elapsed_ms": 13217.645213007927,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "latency_ms": {
+        "mean": 0.13189780559274367,
+        "p50": 0.10958703933283687,
+        "p95": 0.2459899988025427,
+        "p99": 0.3698960063047707
+      },
+      "price_join_query_ms": 13.232507975772023,
+      "reasons": {
+        "accepted": 90001,
+        "duplicate_counter": 2499,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000
+      },
+      "rejected": 9999,
+      "submitted": 100000,
+      "workers": 1
+    },
+    {
+      "accepted": 90001,
+      "accepted_only_aggregation_ms": 1181.4544170047157,
+      "accepted_only_query_ms": 12.540126976091415,
+      "admissions_per_second": 7257.96982424296,
+      "elapsed_ms": 13777.957531041466,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "latency_ms": {
+        "mean": 0.5247677326772827,
+        "p50": 0.49476599087938666,
+        "p95": 0.9272319730371237,
+        "p99": 1.2040319852530956
+      },
+      "price_join_query_ms": 11.752675985917449,
+      "reasons": {
+        "accepted": 90001,
+        "duplicate_counter": 2499,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000
+      },
+      "rejected": 9999,
+      "submitted": 100000,
+      "workers": 4
+    },
+    {
+      "accepted": 90001,
+      "accepted_only_aggregation_ms": 1235.582682013046,
+      "accepted_only_query_ms": 12.564928969368339,
+      "admissions_per_second": 4443.305194813026,
+      "elapsed_ms": 22505.76893001562,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "latency_ms": {
+        "mean": 3.5063896813010795,
+        "p50": 3.3007260062731802,
+        "p95": 5.706718016881496,
+        "p99": 8.626313006971031
+      },
+      "price_join_query_ms": 12.300176022108644,
+      "reasons": {
+        "accepted": 90001,
+        "duplicate_counter": 2499,
+        "price_row_binding": 2500,
+        "source_token_reuse": 5000
+      },
+      "rejected": 9999,
+      "submitted": 100000,
+      "workers": 16
+    }
+  ],
+  "crash_recovery": {
+    "aggregate_reports_after_two_replays": 1,
+    "first_aggregation_ms": 0.38319098530337214,
+    "invariant_violations": 0,
+    "missing_events": 2,
+    "recovery_mark_missing_ms": 0.3383680013939738,
+    "scenario": "postgres_crash_recovery",
+    "second_aggregation_ms": 0.12049800716340542,
+    "unaggregated_accepted": 0
+  },
+  "parameters": {
+    "db": "postgresql-serializable-temp-cluster",
+    "duplicate_rate": 0.05,
+    "fraud_rate": 0.1,
+    "n": 100000,
+    "policy": "policy-v5",
+    "workers": [
+      1,
+      4,
+      16
+    ]
+  },
+  "postgres": {
+    "dsn_public": {
+      "host": "/tmp/pg_admission_q987h5c7/socket",
+      "port": "45377",
+      "user": "fu"
+    }
+  },
+  "race_tests": [
+    {
+      "accepted": 1,
+      "aggregation_ms": 1.419727981556207,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "rejected_by_reason": {
+        "source_token_reuse": 31
+      },
+      "scenario": "postgres_source_token_race",
+      "workers": 32
+    },
+    {
+      "accepted": 1,
+      "aggregation_ms": 1.4511049957945943,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "rejected_by_reason": {
+        "duplicate_counter": 31
+      },
+      "scenario": "postgres_counter_race",
+      "workers": 32
+    }
+  ]
+}

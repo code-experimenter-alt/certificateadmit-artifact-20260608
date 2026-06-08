@@ -1,0 +1,100 @@
+{
+  "artifact": "certificate_contract_compiler",
+  "description": "declarative CertificateAdmit contract compiled to SQL and linearizable KV checks",
+  "generated_files": [
+    "certificate_contract_compiler.csv",
+    "certificate_contract_sqlite.sql",
+    "certificate_contract_postgres.sql",
+    "certificate_contract_kv_plan.txt"
+  ],
+  "predicates": [
+    {
+      "if_omitted": "crash after receive can lose malformed or deterministic rejection provenance",
+      "kv": "put absent inbox/attempt_id := receive_hash,state=received",
+      "postgres": "INSERT INTO AttemptInbox(attempt_id, receive_hash, state, received_at) VALUES ($1, $2, 'received', $3) ON CONFLICT (attempt_id) DO NOTHING",
+      "predicate": "durable_receipt",
+      "relations": "AttemptInbox",
+      "sqlite": "INSERT OR IGNORE INTO AttemptInbox(attempt_id, receive_hash, state, received_at) VALUES (:attempt_id, :receive_hash, 'received', :now)"
+    },
+    {
+      "if_omitted": "duplicate source accepted",
+      "kv": "compare value(source/src)=issued",
+      "postgres": "UPDATE SourceToken SET state='consumed' WHERE src=$1 AND state='issued'; -- rowcount must be 1",
+      "predicate": "source_once",
+      "relations": "SourceToken, CertLedger",
+      "sqlite": "UPDATE SourceToken SET state='consumed' WHERE src=:src AND state='issued'; -- rowcount must be 1"
+    },
+    {
+      "if_omitted": "replay or fork accepted",
+      "kv": "compare absent terminal/rid/nonce, counter/seller/session/ctr, and nonce/seller/session/nonce",
+      "postgres": "same unique indexes, enforced inside SERIALIZABLE transaction",
+      "predicate": "separate_freshness_keys",
+      "relations": "CertLedger",
+      "sqlite": "PRIMARY KEY(rid, nonce); UNIQUE(seller, session, ctr); UNIQUE(seller, session, nonce)"
+    },
+    {
+      "if_omitted": "substituted price paid",
+      "kv": "read immutable policy/price key selected by attested policy",
+      "postgres": "SELECT ... FOR SHARE FROM PricePolicy WHERE policy=$1 AND price_id=$2",
+      "predicate": "policy_price",
+      "relations": "PricePolicy, CertLedger",
+      "sqlite": "SELECT 1 FROM PricePolicy WHERE policy=:policy AND price_id=:price_id"
+    },
+    {
+      "if_omitted": "fill/dispute query loses reason",
+      "kv": "put reject/K_t/reason for parsed failures or reject/K_a/reason for malformed receives",
+      "postgres": "INSERT INTO RejectLog(reject_key, rid, nonce, reason, seller, workload) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (reject_key) DO NOTHING",
+      "predicate": "reject_provenance",
+      "relations": "AttemptInbox, RejectLog",
+      "sqlite": "INSERT OR IGNORE INTO RejectLog(reject_key, rid, nonce, reason, seller, workload) VALUES (:reject_key, :rid, :nonce, :reason, :seller, :workload)"
+    },
+    {
+      "if_omitted": "unsafe aggregation input",
+      "kv": "put queue/rid/nonce in the success branch of the same compare-put transaction",
+      "postgres": "same queue insert in the accept branch of one SERIALIZABLE transaction",
+      "predicate": "accepted_only_input",
+      "relations": "AggregateQueue, CertLedger",
+      "sqlite": "INSERT INTO AggregateQueue(rid, nonce, ...) only after source, freshness, price, commitment, and residual checks"
+    },
+    {
+      "if_omitted": "within-class over-claim without penalty",
+      "kv": "include residual bucket in attested success value",
+      "postgres": "same residual evidence predicate in transaction",
+      "predicate": "residual_policy",
+      "relations": "CertLedger, PricePolicy",
+      "sqlite": "CHECK residual evidence before accepted CertLedger status"
+    }
+  ],
+  "relations": [
+    {
+      "name": "AttemptInbox",
+      "role": "durable receive record before parsing, verification, or rejection",
+      "schema": "attempt_id TEXT PRIMARY KEY, receive_hash TEXT NOT NULL, state TEXT NOT NULL, received_at REAL NOT NULL"
+    },
+    {
+      "name": "SourceToken",
+      "role": "one issued source/cohort slot consumed at most once",
+      "schema": "src TEXT PRIMARY KEY, seller TEXT NOT NULL, session TEXT NOT NULL, workload TEXT NOT NULL, state TEXT NOT NULL"
+    },
+    {
+      "name": "CertLedger",
+      "role": "terminal and freshness-key provenance",
+      "schema": "rid TEXT NOT NULL, nonce TEXT NOT NULL, src TEXT NOT NULL UNIQUE, seller TEXT NOT NULL, session TEXT NOT NULL, ctr INTEGER NOT NULL, policy TEXT NOT NULL, price_id TEXT NOT NULL, commitment TEXT NOT NULL, status TEXT NOT NULL, PRIMARY KEY(rid, nonce), UNIQUE(seller, session, ctr), UNIQUE(seller, session, nonce)"
+    },
+    {
+      "name": "PricePolicy",
+      "role": "posted price/SLA row bound before admission",
+      "schema": "policy TEXT NOT NULL, price_id TEXT NOT NULL, quality_class TEXT NOT NULL, price REAL NOT NULL, PRIMARY KEY(policy, price_id)"
+    },
+    {
+      "name": "RejectLog",
+      "role": "queryable deterministic rejection provenance keyed by terminal key or receive id",
+      "schema": "reject_key TEXT PRIMARY KEY, rid TEXT, nonce TEXT, reason TEXT NOT NULL, seller TEXT NOT NULL, workload TEXT NOT NULL"
+    },
+    {
+      "name": "AggregateQueue",
+      "role": "accepted-only estimator input",
+      "schema": "rid TEXT NOT NULL, nonce TEXT NOT NULL, src TEXT NOT NULL, seller TEXT NOT NULL, session TEXT NOT NULL, workload TEXT NOT NULL, quality_class TEXT NOT NULL, price_id TEXT NOT NULL, commitment TEXT NOT NULL, PRIMARY KEY(rid, nonce)"
+    }
+  ]
+}

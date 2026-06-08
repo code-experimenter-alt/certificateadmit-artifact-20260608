@@ -1,0 +1,51 @@
+{
+  "parameters": {
+    "audit_ledger_overhead_ms": 2.4,
+    "base_nitro_p95_ms": 18.9,
+    "cell_count": 135,
+    "deposit_audit_cap": 80.0,
+    "domains": [
+      2,
+      32,
+      1024
+    ],
+    "eps": [
+      0.2,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "n": [
+      10000,
+      100000,
+      1000000
+    ],
+    "value_model": "100*exp(-0.75*sigma), sigma=sqrt(domain/n)*(exp(eps)+domain-2)/(exp(eps)-1)"
+  },
+  "rows": [
+    {
+      "accepted_cell_fraction": 1.0,
+      "cells": 135,
+      "ic_coverage": 0.8962962962962963,
+      "max_deposit_audit_cost": 80.0,
+      "p95_latency_ms": 21.299999999999997,
+      "policy": "DepositAuditNoPoW",
+      "rejected_cell_fraction": 0.0,
+      "unsafe_cell_fraction": 0.1037037037037037,
+      "uses_pow": false
+    },
+    {
+      "accepted_cell_fraction": 0.8962962962962963,
+      "cells": 135,
+      "ic_coverage": 1.0,
+      "max_deposit_audit_cost": 80.0,
+      "p95_latency_ms": 21.299999999999997,
+      "policy": "DepositAuditReject",
+      "rejected_cell_fraction": 0.1037037037037037,
+      "unsafe_cell_fraction": 0.0,
+      "uses_pow": false
+    }
+  ]
+}

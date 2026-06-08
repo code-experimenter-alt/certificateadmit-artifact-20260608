@@ -1,0 +1,239 @@
+{
+  "artifact": "residual_policy_sensitivity",
+  "description": "no-PoW sealed-class sensitivity over value scale, deposit cap, and audit recovery",
+  "parameters": {
+    "audit_recovery": [
+      0.5,
+      1.0
+    ],
+    "deposit_caps": [
+      40.0,
+      80.0,
+      160.0
+    ],
+    "domains": [
+      2,
+      32,
+      1024
+    ],
+    "eps": [
+      0.2,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "n": [
+      10000,
+      100000,
+      1000000
+    ],
+    "value_model": "B*exp(-0.75*sigma), sigma=sqrt(domain/n)*(exp(eps)+domain-2)/(exp(eps)-1)",
+    "value_scales": [
+      50.0,
+      100.0,
+      200.0
+    ]
+  },
+  "rows": [
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.725925925925926,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 20.0,
+      "max_uncovered_premium": 48.41375478384015,
+      "reject_large_cell_fraction": 0.2740740740740741,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.8962962962962963,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 48.41375478384015,
+      "reject_large_cell_fraction": 0.1037037037037037,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 0.8962962962962963,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 48.41375478384015,
+      "reject_large_cell_fraction": 0.1037037037037037,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 1.0,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 0.0,
+      "reject_large_cell_fraction": 0.0,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 1.0,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 0.0,
+      "reject_large_cell_fraction": 0.0,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 1.0,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 160.0,
+      "max_uncovered_premium": 0.0,
+      "reject_large_cell_fraction": 0.0,
+      "value_scale": 50.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.6296296296296297,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 20.0,
+      "max_uncovered_premium": 96.8275095676803,
+      "reject_large_cell_fraction": 0.37037037037037035,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.725925925925926,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 96.8275095676803,
+      "reject_large_cell_fraction": 0.2740740740740741,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 0.725925925925926,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 96.8275095676803,
+      "reject_large_cell_fraction": 0.2740740740740741,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 0.8962962962962963,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 96.8275095676803,
+      "reject_large_cell_fraction": 0.1037037037037037,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 0.8962962962962963,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 96.8275095676803,
+      "reject_large_cell_fraction": 0.1037037037037037,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 1.0,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 160.0,
+      "max_uncovered_premium": 0.0,
+      "reject_large_cell_fraction": 0.0,
+      "value_scale": 100.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.5703703703703704,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 20.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.42962962962962964,
+      "value_scale": 200.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 40.0,
+      "deposit_only_coverage": 0.6296296296296297,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.37037037037037035,
+      "value_scale": 200.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 0.6296296296296297,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 40.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.37037037037037035,
+      "value_scale": 200.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 80.0,
+      "deposit_only_coverage": 0.725925925925926,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.2740740740740741,
+      "value_scale": 200.0
+    },
+    {
+      "audit_recovery": 0.5,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 0.725925925925926,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 80.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.2740740740740741,
+      "value_scale": 200.0
+    },
+    {
+      "audit_recovery": 1.0,
+      "cells": 135,
+      "deposit_cap": 160.0,
+      "deposit_only_coverage": 0.8962962962962963,
+      "deposit_or_reject_coverage": 1.0,
+      "effective_cap": 160.0,
+      "max_uncovered_premium": 193.6550191353606,
+      "reject_large_cell_fraction": 0.1037037037037037,
+      "value_scale": 200.0
+    }
+  ]
+}

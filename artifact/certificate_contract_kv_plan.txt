@@ -1,0 +1,21 @@
+CertificateAdmit linearizable KV plan
+
+Receive step writes:
+- inbox/attempt_id := receive_hash,state=received before parsing or verification
+
+Success branch compares:
+- source_once: compare value(source/src)=issued
+- separate_freshness_keys: compare absent terminal/rid/nonce, counter/seller/session/ctr, and nonce/seller/session/nonce
+- policy_price: read immutable policy/price key selected by attested policy
+- residual_policy: include residual bucket in attested success value
+
+Success branch writes:
+- source/src := consumed
+- terminal/rid/nonce := accepted certificate row
+- counter/seller/session/ctr := terminal/rid/nonce
+- nonce/seller/session/nonce := terminal/rid/nonce
+- queue/rid/nonce := accepted aggregate input
+
+Failure branch writes:
+- reject/rid/nonce/reason := deterministic rejection reason when the attempt is parsed
+- reject/attempt_id/reason := malformed receive reason when terminal key cannot be derived

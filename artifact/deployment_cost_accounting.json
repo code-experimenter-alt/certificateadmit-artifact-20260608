@@ -1,0 +1,54 @@
+{
+  "artifact": "deployment_cost_accounting",
+  "description": "billable-unit accounting for full certificate admission cost model",
+  "assumption": "provider prices and replicated-ledger deployment choices are external parameters",
+  "parameters": {
+    "reports": 1000000,
+    "batch_size": 128,
+    "audit_rate": 0.01
+  },
+  "rows": [
+    {
+      "component": "measured_enclave_runtime",
+      "unit": "USD per 1M reports",
+      "count": 0.08,
+      "basis": "scaled Nitro DirectAttest/TEEOnly EC2 runtime component only"
+    },
+    {
+      "component": "kms_or_session_key_release",
+      "unit": "requests",
+      "count": 7813,
+      "basis": "ceil(reports / batch_size), reports=1000000, batch_size=128"
+    },
+    {
+      "component": "linearizable_ledger_write",
+      "unit": "writes",
+      "count": 2000000,
+      "basis": "source-token consumption plus terminal/counter/nonce-key admission"
+    },
+    {
+      "component": "certificate_row_storage",
+      "unit": "rows",
+      "count": 1000000,
+      "basis": "accepted/rejected certificate provenance rows before aggregation"
+    },
+    {
+      "component": "source_token_issuance",
+      "unit": "tokens",
+      "count": 1000000,
+      "basis": "one upstream source-admission token per admitted report slot"
+    },
+    {
+      "component": "audit_operation",
+      "unit": "audits",
+      "count": 10000,
+      "basis": "audit_rate=0.01"
+    },
+    {
+      "component": "accepted_aggregation_input",
+      "unit": "rows",
+      "count": 1000000,
+      "basis": "accepted-only reports consumed by LDP aggregation"
+    }
+  ]
+}

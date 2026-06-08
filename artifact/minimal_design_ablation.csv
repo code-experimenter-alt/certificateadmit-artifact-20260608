@@ -1,0 +1,8 @@
+design,executable_policy_binding,report_commitment,source_exactly_once,freshness_counter_nonce,price_row_binding,rejection_audit,accepted_only_queue,residual_policy_binding,covered_invariants,total_invariants,attacks_left
+NoVerify metadata,0,0,0,0,0,0,0,0,0,8,forgery; downgrade; replay/fork; source double spend; price swap; opaque drops
+Attestation blob only,1,1,0,0,0,0,0,0,2,8,replay/fork; source double spend; price swap; missing rejection provenance
+Append-only certificate log,1,1,0,0,1,1,0,0,4,8,duplicate source/counter races; accepted-only race; residual hidden premium
+TEE class assertion only,1,1,0,1,0,0,0,0,3,8,source double spend; price substitution; opaque drops; within-class premium
+Source-token gate only,0,0,1,0,0,1,1,0,3,8,forged randomizer; report mutation; stale policy; price swap; replay
+Attested transactional outbox,1,1,1,0,1,1,1,0,6,8,replay/fork without separate counter/nonce uniqueness; within-class premium without residual policy
+Full attested outbox / CertificateAdmit,1,1,1,1,1,1,1,1,8,8,"none under stated attestation, source, KMS, and ledger assumptions"

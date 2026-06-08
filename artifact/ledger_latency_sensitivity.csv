@@ -1,0 +1,6 @@
+linearizable_write_p95_ms,writes_per_report,added_p95_ms_per_report,single_worker_upper_bound_admits_per_s,workers,parallel_upper_bound_admits_per_s,ledger_writes_per_million_reports
+1,2,2,500.0,16,8000.0,2000000
+5,2,10,100.0,16,1600.0,2000000
+10,2,20,50.0,16,800.0,2000000
+25,2,50,20.0,16,320.0,2000000
+50,2,100,10.0,16,160.0,2000000
