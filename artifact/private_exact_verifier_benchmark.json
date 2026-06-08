@@ -1,0 +1,189 @@
+{
+  "artifact": "private_exact_verifier_benchmark",
+  "benchmarks": [
+    {
+      "accepted": 18001,
+      "accepted_only_aggregation_ms": 21.845944924280047,
+      "accepted_only_query_ms": 0.9666429832577705,
+      "admission_ms": {
+        "mean": 0.02110244262148626,
+        "p50": 0.018734950572252274,
+        "p95": 0.028737005777657032,
+        "p99": 0.12366194278001785
+      },
+      "elapsed_ms": 706.6731170052662,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "price_join_query_ms": 1.2353409547358751,
+      "private_verifier_ms": {
+        "mean": 0.006865603232290596,
+        "p50": 0.006762100383639336,
+        "p95": 0.007438007742166519,
+        "p99": 0.008938019163906574
+      },
+      "public_dispute_verify_ms": {
+        "mean": 0.004099324153503403,
+        "p50": 0.004066969268023968,
+        "p95": 0.004439032636582851,
+        "p99": 0.005112029612064362
+      },
+      "public_leakage_violations": 0,
+      "reasons": {
+        "accepted": 18001,
+        "private_exact_mismatch": 1900,
+        "verifier_not_allowlisted": 99
+      },
+      "rejected": 1999,
+      "reports_per_second": 28301.628459783275,
+      "submitted": 20000,
+      "total_latency_ms": {
+        "mean": 0.03511830467614345,
+        "p50": 0.0328549649566412,
+        "p95": 0.04295306280255318,
+        "p99": 0.13727799523621798
+      },
+      "workers": 1
+    },
+    {
+      "accepted": 18001,
+      "accepted_only_aggregation_ms": 30.71462898515165,
+      "accepted_only_query_ms": 1.0374329285696149,
+      "admission_ms": {
+        "mean": 0.15954719444271176,
+        "p50": 0.027328962460160255,
+        "p95": 0.07516809273511171,
+        "p99": 0.31831301748752594
+      },
+      "elapsed_ms": 1247.6871460676193,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "price_join_query_ms": 1.3850160175934434,
+      "private_verifier_ms": {
+        "mean": 0.012064340204233304,
+        "p50": 0.00867992639541626,
+        "p95": 0.023048953153192997,
+        "p99": 0.046711997129023075
+      },
+      "public_dispute_verify_ms": {
+        "mean": 0.006784508965210989,
+        "p50": 0.005109002813696861,
+        "p95": 0.012170989066362381,
+        "p99": 0.02773397136479616
+      },
+      "public_leakage_violations": 0,
+      "reasons": {
+        "accepted": 18001,
+        "private_exact_mismatch": 1900,
+        "verifier_not_allowlisted": 99
+      },
+      "rejected": 1999,
+      "reports_per_second": 16029.659408638394,
+      "submitted": 20000,
+      "total_latency_ms": {
+        "mean": 0.18313645371235907,
+        "p50": 0.04548393189907074,
+        "p95": 0.11958193499594927,
+        "p99": 0.3633570158854127
+      },
+      "workers": 4
+    },
+    {
+      "accepted": 18001,
+      "accepted_only_aggregation_ms": 32.325762091204524,
+      "accepted_only_query_ms": 0.9888230124488473,
+      "admission_ms": {
+        "mean": 0.7025775108311791,
+        "p50": 0.02678297460079193,
+        "p95": 0.1984190894290805,
+        "p99": 8.366917027160525
+      },
+      "elapsed_ms": 1208.0737489741296,
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "price_join_query_ms": 1.3147980207577348,
+      "private_verifier_ms": {
+        "mean": 0.011387265246594325,
+        "p50": 0.007673981599509716,
+        "p95": 0.020154984667897224,
+        "p99": 0.028184964321553707
+      },
+      "public_dispute_verify_ms": {
+        "mean": 0.006115423166193068,
+        "p50": 0.004440895281732082,
+        "p95": 0.009713927283883095,
+        "p99": 0.012674019671976566
+      },
+      "public_leakage_violations": 0,
+      "reasons": {
+        "accepted": 18001,
+        "private_exact_mismatch": 1900,
+        "verifier_not_allowlisted": 99
+      },
+      "rejected": 1999,
+      "reports_per_second": 16555.280682974506,
+      "submitted": 20000,
+      "total_latency_ms": {
+        "mean": 0.7243855119741056,
+        "p50": 0.04342000465840101,
+        "p95": 0.21808501332998276,
+        "p99": 8.402446983382106
+      },
+      "workers": 16
+    }
+  ],
+  "description": "local PrivateExact exact-budget verifier transcript, public dispute verification, leakage, and admission benchmark",
+  "limitations": [
+    "local HMAC transcript signature for reproducibility; production deployment should use an allow-listed public-key verifier or enclave signature",
+    "exact budget state is modeled as private verifier input; this is not a clean-room or Nitro run",
+    "KMS/session release, verifier governance, and replicated ledger operations are deployment assumptions"
+  ],
+  "negative_controls": {
+    "budget_mismatch_decision": "reject",
+    "budget_mismatch_reason": "private_exact_mismatch",
+    "leakage_violations_in_example": 0,
+    "public_transcript_fields": [
+      "commitment",
+      "decision",
+      "nonce",
+      "policy",
+      "price_id",
+      "reason_class",
+      "rid",
+      "signature",
+      "transcript_hash",
+      "verifier_id",
+      "verifier_pcr"
+    ],
+    "stale_verifier_reason": "verifier_not_allowlisted",
+    "stale_verifier_rejected": true,
+    "tampered_signature_reason": "transcript_signature",
+    "tampered_signature_rejected": true
+  },
+  "parameters": {
+    "allowed_pcr": "pcr-private-exact-v1",
+    "mismatch_rate": 0.1,
+    "n": 20000,
+    "stale_verifier_rate": 0.005,
+    "verifier_id": "private-exact-verifier-01",
+    "workers": [
+      1,
+      4,
+      16
+    ]
+  }
+}

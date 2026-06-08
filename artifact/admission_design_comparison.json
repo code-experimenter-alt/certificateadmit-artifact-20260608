@@ -2,116 +2,116 @@
   "artifact": "admission_design_comparison",
   "description": "mixed admission/query workload comparing simpler designs with CertificateAdmit",
   "parameters": {
-    "n": 5000,
+    "n": 50000,
     "invalid_schedule": "5% duplicate source, 5% duplicate counter, 2.5% price-row substitutions"
   },
   "rows": [
     {
       "design": "MetadataOnly",
-      "submitted": 5000,
-      "accepted": 5000,
+      "submitted": 50000,
+      "accepted": 50000,
       "rejected": 0,
-      "admissions_per_second": 630656.9101611158,
+      "admissions_per_second": 409691.9546234251,
       "latency_ms": {
-        "mean": 0.001432579755783081,
-        "p50": 0.0012619420886039734,
-        "p95": 0.0025460030883550644
+        "mean": 0.002157866486813873,
+        "p50": 0.001784064806997776,
+        "p95": 0.003508990630507469
       },
       "query_ms": {
-        "accepted_by_price": 0.12370490003377199,
-        "price_join": 0.2481299452483654,
-        "source_audit": 0.28360600117594004,
-        "rejection_audit": 0.005576061084866524,
-        "ledger_probe": 0.006207963451743126
+        "accepted_by_price": 1.3925581006333232,
+        "price_join": 3.0256760073825717,
+        "source_audit": 3.643752890639007,
+        "rejection_audit": 0.015972997061908245,
+        "ledger_probe": 0.015803962014615536
       },
-      "query_total_ms": 0.6672248709946871,
+      "query_total_ms": 8.093763957731426,
       "invariants": {
-        "duplicate_sources": 249,
-        "duplicate_counters": 250,
-        "price_swap_accepted": 125,
-        "missing_rejection_rows": 624
+        "duplicate_sources": 2499,
+        "duplicate_counters": 2500,
+        "price_swap_accepted": 1250,
+        "missing_rejection_rows": 6249
       },
-      "invariant_sum": 1248,
-      "pre_reconcile_invariant_sum": 1248,
+      "invariant_sum": 12498,
+      "pre_reconcile_invariant_sum": 12498,
       "reconcile": null
     },
     {
       "design": "AttestationBlobOnly",
-      "submitted": 5000,
-      "accepted": 5000,
+      "submitted": 50000,
+      "accepted": 50000,
       "rejected": 0,
-      "admissions_per_second": 363014.72475849173,
+      "admissions_per_second": 224938.8203647925,
       "latency_ms": {
-        "mean": 0.002519147377461195,
-        "p50": 0.002261018380522728,
-        "p95": 0.0039780279621481895
+        "mean": 0.004060560984071344,
+        "p50": 0.0033800024539232254,
+        "p95": 0.008187023922801018
       },
       "query_ms": {
-        "accepted_by_price": 0.11823093518614769,
-        "price_join": 0.2474250504747033,
-        "source_audit": 0.2790619619190693,
-        "rejection_audit": 0.005195965059101582,
-        "ledger_probe": 0.006354996003210545
+        "accepted_by_price": 1.5085149789229035,
+        "price_join": 3.2230030046775937,
+        "source_audit": 3.9536409312859178,
+        "rejection_audit": 0.01730700023472309,
+        "ledger_probe": 0.016200006939470768
       },
-      "query_total_ms": 0.6562689086422324,
+      "query_total_ms": 8.718665922060609,
       "invariants": {
-        "duplicate_sources": 249,
-        "duplicate_counters": 250,
-        "price_swap_accepted": 125,
-        "missing_rejection_rows": 624
+        "duplicate_sources": 2499,
+        "duplicate_counters": 2500,
+        "price_swap_accepted": 1250,
+        "missing_rejection_rows": 6249
       },
-      "invariant_sum": 1248,
-      "pre_reconcile_invariant_sum": 1248,
+      "invariant_sum": 12498,
+      "pre_reconcile_invariant_sum": 12498,
       "reconcile": null
     },
     {
       "design": "AppendOnlyCertLog",
-      "submitted": 5000,
-      "accepted": 4875,
-      "rejected": 125,
-      "admissions_per_second": 307609.1682812153,
+      "submitted": 50000,
+      "accepted": 48750,
+      "rejected": 1250,
+      "admissions_per_second": 178254.45840808598,
       "latency_ms": {
-        "mean": 0.0030251457821577786,
-        "p50": 0.0027939677238464355,
-        "p95": 0.004342058673501015
+        "mean": 0.004499876152258366,
+        "p50": 0.003976980224251747,
+        "p95": 0.007326947525143623
       },
       "query_ms": {
-        "accepted_by_price": 0.12103409972041845,
-        "price_join": 0.25927205570042133,
-        "source_audit": 0.2775411121547222,
-        "rejection_audit": 0.008973991498351097,
-        "ledger_probe": 0.006454065442085266
+        "accepted_by_price": 2.581157023087144,
+        "price_join": 5.1984230522066355,
+        "source_audit": 5.2087269723415375,
+        "rejection_audit": 0.16674096696078777,
+        "ledger_probe": 0.03976305015385151
       },
-      "query_total_ms": 0.6732753245159984,
+      "query_total_ms": 13.194811064749956,
       "invariants": {
-        "duplicate_sources": 249,
-        "duplicate_counters": 250,
+        "duplicate_sources": 2499,
+        "duplicate_counters": 2500,
         "price_swap_accepted": 0,
-        "missing_rejection_rows": 499
+        "missing_rejection_rows": 4999
       },
-      "invariant_sum": 998,
-      "pre_reconcile_invariant_sum": 998,
+      "invariant_sum": 9998,
+      "pre_reconcile_invariant_sum": 9998,
       "reconcile": null
     },
     {
       "design": "AppendOnlyReconcileLog",
-      "submitted": 5000,
-      "accepted": 4376,
-      "rejected": 624,
-      "admissions_per_second": 376493.9457953813,
+      "submitted": 50000,
+      "accepted": 43751,
+      "rejected": 6249,
+      "admissions_per_second": 328536.29157424264,
       "latency_ms": {
-        "mean": 0.00242490665987134,
-        "p50": 0.002196989953517914,
-        "p95": 0.003730994649231434
+        "mean": 0.0027571458648890258,
+        "p50": 0.0023710308596491814,
+        "p95": 0.0046370550990104675
       },
       "query_ms": {
-        "accepted_by_price": 0.12299290392547846,
-        "price_join": 0.2461179392412305,
-        "source_audit": 0.445054960437119,
-        "rejection_audit": 0.024241977371275425,
-        "ledger_probe": 0.007831025868654251
+        "accepted_by_price": 1.2923290487378836,
+        "price_join": 2.2606399143114686,
+        "source_audit": 4.435865092091262,
+        "rejection_audit": 0.19004999194294214,
+        "ledger_probe": 0.011635012924671173
       },
-      "query_total_ms": 0.8462388068437576,
+      "query_total_ms": 8.190519060008228,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -119,31 +119,31 @@
         "missing_rejection_rows": 0
       },
       "invariant_sum": 0,
-      "pre_reconcile_invariant_sum": 1248,
+      "pre_reconcile_invariant_sum": 12498,
       "reconcile": {
-        "reconciled_rows": 624,
-        "reconciliation_ms": 42.123527033254504
+        "reconciled_rows": 6249,
+        "reconciliation_ms": 4500.267727999017
       }
     },
     {
       "design": "SafeMaterializedView",
-      "submitted": 5000,
-      "accepted": 4376,
-      "rejected": 624,
-      "admissions_per_second": 746217.1922765811,
+      "submitted": 50000,
+      "accepted": 43751,
+      "rejected": 6249,
+      "admissions_per_second": 632507.6527344905,
       "latency_ms": {
-        "mean": 0.0012066900497302413,
-        "p50": 0.0011040829122066498,
-        "p95": 0.0019209692254662514
+        "mean": 0.0014068301836960017,
+        "p50": 0.001235981471836567,
+        "p95": 0.0021869782358407974
       },
       "query_ms": {
-        "accepted_by_price": 0.13746402692049742,
-        "price_join": 0.2584849717095494,
-        "source_audit": 0.4014729056507349,
-        "rejection_audit": 0.02354604657739401,
-        "ledger_probe": 0.007495982572436333
+        "accepted_by_price": 1.1772490106523037,
+        "price_join": 2.012126031331718,
+        "source_audit": 3.267685999162495,
+        "rejection_audit": 0.18293899483978748,
+        "ledger_probe": 0.011945958249270916
       },
-      "query_total_ms": 0.8284639334306121,
+      "query_total_ms": 6.651945994235575,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -153,89 +153,89 @@
       "invariant_sum": 0,
       "pre_reconcile_invariant_sum": 0,
       "reconcile": {
-        "reconciled_rows": 624,
-        "published_rows": 4376,
-        "publication_ms": 22.280907025560737,
-        "reconciliation_ms": 22.280907025560737
+        "reconciled_rows": 6249,
+        "published_rows": 43751,
+        "publication_ms": 284.2148810159415,
+        "reconciliation_ms": 284.2148810159415
       }
     },
     {
       "design": "SourceTokenGate",
-      "submitted": 5000,
-      "accepted": 4751,
-      "rejected": 249,
-      "admissions_per_second": 254504.25420284682,
+      "submitted": 50000,
+      "accepted": 47501,
+      "rejected": 2499,
+      "admissions_per_second": 234236.4118178788,
       "latency_ms": {
-        "mean": 0.003640881460160017,
-        "p50": 0.003403984010219574,
-        "p95": 0.005257083103060722
+        "mean": 0.0039748219447210435,
+        "p50": 0.0032508978620171547,
+        "p95": 0.008236966095864773
       },
       "query_ms": {
-        "accepted_by_price": 0.12769305612891912,
-        "price_join": 0.2704859944060445,
-        "source_audit": 0.3151079872623086,
-        "rejection_audit": 0.012850039638578892,
-        "ledger_probe": 0.007103080861270428
+        "accepted_by_price": 0.9820399573072791,
+        "price_join": 2.145427977666259,
+        "source_audit": 2.750171930529177,
+        "rejection_audit": 0.07492594886571169,
+        "ledger_probe": 0.009409035556018353
       },
-      "query_total_ms": 0.7332401582971215,
+      "query_total_ms": 5.961974849924445,
       "invariants": {
         "duplicate_sources": 0,
-        "duplicate_counters": 250,
-        "price_swap_accepted": 125,
-        "missing_rejection_rows": 375
+        "duplicate_counters": 2500,
+        "price_swap_accepted": 1250,
+        "missing_rejection_rows": 3750
       },
-      "invariant_sum": 750,
-      "pre_reconcile_invariant_sum": 750,
+      "invariant_sum": 7500,
+      "pre_reconcile_invariant_sum": 7500,
       "reconcile": null
     },
     {
       "design": "TransactionalOutbox",
-      "submitted": 5000,
-      "accepted": 4626,
-      "rejected": 374,
-      "admissions_per_second": 32937.56457872825,
+      "submitted": 50000,
+      "accepted": 46251,
+      "rejected": 3749,
+      "admissions_per_second": 31555.41518179574,
       "latency_ms": {
-        "mean": 0.03028798147570342,
-        "p50": 0.027862959541380405,
-        "p95": 0.0409870408475399
+        "mean": 0.03161651570582762,
+        "p50": 0.02813700120896101,
+        "p95": 0.0448060454800725
       },
       "query_ms": {
-        "accepted_by_price": 0.12136599980294704,
-        "price_join": 0.24965591728687286,
-        "source_audit": 0.30563795007765293,
-        "rejection_audit": 0.016945996321737766,
-        "ledger_probe": 0.007509952411055565
+        "accepted_by_price": 1.003155019134283,
+        "price_join": 2.2985090035945177,
+        "source_audit": 2.8599289944395423,
+        "rejection_audit": 0.12893101666122675,
+        "ledger_probe": 0.015091965906322002
       },
-      "query_total_ms": 0.7011158159002662,
+      "query_total_ms": 6.305615999735892,
       "invariants": {
         "duplicate_sources": 0,
-        "duplicate_counters": 250,
+        "duplicate_counters": 2500,
         "price_swap_accepted": 0,
-        "missing_rejection_rows": 250
+        "missing_rejection_rows": 2500
       },
-      "invariant_sum": 500,
-      "pre_reconcile_invariant_sum": 500,
+      "invariant_sum": 5000,
+      "pre_reconcile_invariant_sum": 5000,
       "reconcile": null
     },
     {
       "design": "FullTransactionalOutbox",
-      "submitted": 5000,
-      "accepted": 4376,
-      "rejected": 624,
-      "admissions_per_second": 34377.06149181706,
+      "submitted": 50000,
+      "accepted": 43751,
+      "rejected": 6249,
+      "admissions_per_second": 33780.73123777492,
       "latency_ms": {
-        "mean": 0.029020829172804952,
-        "p50": 0.027588102966547012,
-        "p95": 0.03955501597374678
+        "mean": 0.029533043077681214,
+        "p50": 0.02745597157627344,
+        "p95": 0.04150602035224438
       },
       "query_ms": {
-        "accepted_by_price": 0.10337796993553638,
-        "price_join": 0.2216820139437914,
-        "source_audit": 0.32410898711532354,
-        "rejection_audit": 0.022966996766626835,
-        "ledger_probe": 0.006454996764659882
+        "accepted_by_price": 1.0338020510971546,
+        "price_join": 2.212198916822672,
+        "source_audit": 3.1109409173950553,
+        "rejection_audit": 0.18315704073756933,
+        "ledger_probe": 0.011175987310707569
       },
-      "query_total_ms": 0.678590964525938,
+      "query_total_ms": 6.551274913363159,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -248,23 +248,23 @@
     },
     {
       "design": "CertificateAdmitSQLite",
-      "submitted": 5000,
-      "accepted": 4376,
-      "rejected": 624,
-      "admissions_per_second": 34446.704087910046,
+      "submitted": 50000,
+      "accepted": 43751,
+      "rejected": 6249,
+      "admissions_per_second": 33987.39852124731,
       "latency_ms": {
-        "mean": 0.028963929368183018,
-        "p50": 0.027608941309154034,
-        "p95": 0.039773061871528625
+        "mean": 0.029352291610557586,
+        "p50": 0.02739601768553257,
+        "p95": 0.040653045289218426
       },
       "query_ms": {
-        "accepted_by_price": 0.10938302148133516,
-        "price_join": 0.23065891582518816,
-        "source_audit": 0.298480037599802,
-        "rejection_audit": 0.022366992197930813,
-        "ledger_probe": 0.007143011316657066
+        "accepted_by_price": 0.9450959041714668,
+        "price_join": 2.043824060820043,
+        "source_audit": 3.033597022294998,
+        "rejection_audit": 0.176892033778131,
+        "ledger_probe": 0.010760035365819931
       },
-      "query_total_ms": 0.6680319784209132,
+      "query_total_ms": 6.210169056430459,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,

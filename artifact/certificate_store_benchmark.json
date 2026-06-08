@@ -1,26 +1,28 @@
 {
   "concurrent_ledger_probe": {
-    "elapsed_ms": 177.15948005206883,
+    "elapsed_ms": 163.77460898365825,
     "hits": 10000,
     "probes": 10000,
-    "probes_per_second": 56446.31603717118,
+    "probes_per_second": 61059.526028224675,
     "workers": 8
   },
   "conflict_checks": {
     "duplicate_counter": "UNIQUE constraint failed",
+    "duplicate_nonce": "UNIQUE constraint failed",
     "duplicate_source": "UNIQUE constraint failed"
   },
   "database": "SQLite temporary file",
-  "insert_rows_per_second": 156166.56093635788,
-  "insert_seconds": 6.403419490088709,
+  "insert_rows_per_second": 143403.77627648844,
+  "insert_seconds": 6.973317062947899,
   "notes": [
     "synthetic certificate rows",
+    "separate terminal, source, counter, and nonce uniqueness constraints",
     "standard-library reproducibility benchmark",
     "not a production database benchmark"
   ],
   "queries": {
     "accepted_by_policy_workload": {
-      "elapsed_ms": 491.78383802063763,
+      "elapsed_ms": 472.962106927298,
       "plan": [
         "SEARCH certificates USING INDEX idx_cert_policy_workload (policy=?)",
         "USE TEMP B-TREE FOR GROUP BY"
@@ -53,9 +55,9 @@
       ]
     },
     "ledger_probe": {
-      "elapsed_ms": 0.018879887647926807,
+      "elapsed_ms": 0.017274986021220684,
       "plan": [
-        "SEARCH certificates USING INDEX sqlite_autoindex_certificates_4 (seller=? AND session=? AND counter=?)"
+        "SEARCH certificates USING INDEX sqlite_autoindex_certificates_3 (seller=? AND session=? AND counter=?)"
       ],
       "rows": [
         {
@@ -65,7 +67,7 @@
       ]
     },
     "price_join": {
-      "elapsed_ms": 233.98108209948987,
+      "elapsed_ms": 227.4238319369033,
       "plan": [
         "SCAN c USING INDEX idx_cert_price",
         "SEARCH p USING INDEX sqlite_autoindex_price_table_1 (price_id=?)"
@@ -84,7 +86,7 @@
       ]
     },
     "rejection_audit": {
-      "elapsed_ms": 0.28605794068425894,
+      "elapsed_ms": 0.26246008928865194,
       "plan": [
         "SCAN rejections USING COVERING INDEX idx_reject_reason"
       ],
@@ -108,7 +110,7 @@
       ]
     },
     "source_join_sample": {
-      "elapsed_ms": 0.055334996432065964,
+      "elapsed_ms": 0.05238095764070749,
       "plan": [
         "SEARCH c USING INDEX idx_cert_source (source>? AND source<?)",
         "SEARCH s USING INDEX sqlite_autoindex_source_tokens_1 (source=?)"

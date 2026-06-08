@@ -2,7 +2,7 @@
   "artifact": "marketplace_workflow_benchmark",
   "description": "multi-seller marketplace admission/query workflow with payments, policy churn, rejection disputes, and aggregation windows",
   "parameters": {
-    "n": 5000,
+    "n": 60000,
     "sellers": 12,
     "workloads": [
       "audience",
@@ -18,25 +18,25 @@
   "rows": [
     {
       "design": "AppendOnlyReconcileLog",
-      "submitted": 5000,
-      "accepted": 4556,
-      "rejected": 444,
-      "admissions_per_second": 273509.3310185925,
+      "submitted": 60000,
+      "accepted": 54691,
+      "rejected": 5309,
+      "admissions_per_second": 234090.3553711731,
       "latency_ms": {
-        "mean": 0.0033419661456719043,
-        "p50": 0.002934015356004238,
-        "p95": 0.005412963218986988
+        "mean": 0.0038258644596983987,
+        "p50": 0.0033349497243762016,
+        "p95": 0.006988993845880032
       },
       "query_ms": {
-        "windowed_aggregation": 0.20430702716112137,
-        "seller_payment_join": 0.3994100261479616,
-        "rejection_disputes": 0.028705107979476452,
-        "policy_churn_audit": 1.0538640199229121,
-        "source_fill_rate": 0.6779769901186228,
-        "ledger_probe": 0.00931497197598219
+        "windowed_aggregation": 2.550802077166736,
+        "seller_payment_join": 5.076346918940544,
+        "rejection_disputes": 0.21770794410258532,
+        "policy_churn_audit": 17.445990000851452,
+        "source_fill_rate": 10.280095972120762,
+        "ledger_probe": 0.020798994228243828
       },
-      "query_total_ms": 2.3735781433060765,
-      "payment_after_reconcile": 3872.2999999999997,
+      "query_total_ms": 35.591741907410324,
+      "payment_after_reconcile": 46486.9,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -44,33 +44,33 @@
         "missing_rejection_rows": 0
       },
       "invariant_sum": 0,
-      "pre_reconcile_invariant_sum": 888,
+      "pre_reconcile_invariant_sum": 10618,
       "reconcile": {
-        "reconciled_rows": 444,
-        "reconciliation_ms": 6.186396931298077
+        "reconciled_rows": 5309,
+        "reconciliation_ms": 109.51491503510624
       }
     },
     {
       "design": "SafeMaterializedView",
-      "submitted": 5000,
-      "accepted": 4556,
-      "rejected": 444,
-      "admissions_per_second": 701730.4569561387,
+      "submitted": 60000,
+      "accepted": 54691,
+      "rejected": 5309,
+      "admissions_per_second": 585240.9776007859,
       "latency_ms": {
-        "mean": 0.0012838903348892927,
-        "p50": 0.0011719530448317528,
-        "p95": 0.002049957402050495
+        "mean": 0.0015288053914749374,
+        "p50": 0.0013220123946666718,
+        "p95": 0.00227196142077446
       },
       "query_ms": {
-        "windowed_aggregation": 0.2038649981841445,
-        "seller_payment_join": 0.4106319975107908,
-        "rejection_disputes": 0.02848601434379816,
-        "policy_churn_audit": 1.082223025150597,
-        "source_fill_rate": 0.7014669245108962,
-        "ledger_probe": 0.010262010619044304
+        "windowed_aggregation": 2.960056997835636,
+        "seller_payment_join": 5.890788044780493,
+        "rejection_disputes": 0.2620220184326172,
+        "policy_churn_audit": 20.546228042803705,
+        "source_fill_rate": 12.415598961524665,
+        "ledger_probe": 0.04492094740271568
       },
-      "query_total_ms": 2.436934970319271,
-      "payment_after_reconcile": 3872.2999999999997,
+      "query_total_ms": 42.11961501277983,
+      "payment_after_reconcile": 46486.9,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -80,33 +80,33 @@
       "invariant_sum": 0,
       "pre_reconcile_invariant_sum": 0,
       "reconcile": {
-        "reconciled_rows": 444,
-        "published_rows": 4556,
-        "publication_ms": 27.98177395015955,
-        "reconciliation_ms": 27.98177395015955
+        "reconciled_rows": 5309,
+        "published_rows": 54691,
+        "publication_ms": 429.16761501692235,
+        "reconciliation_ms": 429.16761501692235
       }
     },
     {
       "design": "CertificateAdmitSQLite",
-      "submitted": 5000,
-      "accepted": 4556,
-      "rejected": 444,
-      "admissions_per_second": 30623.525916977876,
+      "submitted": 60000,
+      "accepted": 54691,
+      "rejected": 5309,
+      "admissions_per_second": 30160.02394525642,
       "latency_ms": {
-        "mean": 0.032576161227189,
-        "p50": 0.02883200068026781,
-        "p95": 0.04531804006546736
+        "mean": 0.033079887134954335,
+        "p50": 0.027520000003278255,
+        "p95": 0.04469393752515316
       },
       "query_ms": {
-        "windowed_aggregation": 0.24232303258031607,
-        "seller_payment_join": 0.48230006359517574,
-        "rejection_disputes": 0.033247051760554314,
-        "policy_churn_audit": 1.245914027094841,
-        "source_fill_rate": 0.7705319439992309,
-        "ledger_probe": 0.011310097761452198
+        "windowed_aggregation": 2.7185570215806365,
+        "seller_payment_join": 5.492942989803851,
+        "rejection_disputes": 0.23143994621932507,
+        "policy_churn_audit": 18.40674108825624,
+        "source_fill_rate": 11.151085025630891,
+        "ledger_probe": 0.024931970983743668
       },
-      "query_total_ms": 2.78562621679157,
-      "payment_after_reconcile": 3872.2999999999997,
+      "query_total_ms": 38.02569804247469,
+      "payment_after_reconcile": 46486.9,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,

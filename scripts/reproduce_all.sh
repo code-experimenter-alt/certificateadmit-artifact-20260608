@@ -14,6 +14,7 @@ python3 artifact/safe_view_freshness_tradeoff.py
 python3 artifact/certificate_store_benchmark.py
 python3 artifact/end_to_end_admission_benchmark.py
 python3 artifact/local_integrated_verifier_path.py
+python3 artifact/private_exact_verifier_benchmark.py
 python3 artifact/public_market_offer_case_study.py
 python3 artifact/public_marketing_workload.py
 python3 artifact/public_mechanism_comparison.py

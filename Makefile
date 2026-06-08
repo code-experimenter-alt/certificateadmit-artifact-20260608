@@ -16,6 +16,7 @@ smoke:
 	python3 artifact/safe_view_freshness_tradeoff.py --n 5000 --batch-sizes 128 512 2048 5000
 	python3 artifact/end_to_end_admission_benchmark.py --n 2000 --workers 1 4
 	python3 artifact/local_integrated_verifier_path.py --n 2000 --workers 1 4
+	python3 artifact/private_exact_verifier_benchmark.py
 	python3 artifact/public_market_offer_case_study.py
 	python3 artifact/selective_missingness_sensitivity.py
 	python3 artifact/residual_policy_sensitivity.py

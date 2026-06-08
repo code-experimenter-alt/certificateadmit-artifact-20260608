@@ -24,17 +24,17 @@
         "source_token_reuse": 5000,
         "duplicate_counter": 2499
       },
-      "elapsed_ms": 2353.3934260485694,
-      "admissions_per_second": 42491.83281178087,
+      "elapsed_ms": 2228.5730000585318,
+      "admissions_per_second": 44871.76323027048,
       "latency_ms": {
-        "mean": 0.02339860853855498,
-        "p50": 0.01986802089959383,
-        "p95": 0.03180094063282013,
-        "p99": 0.20526000298559666
+        "mean": 0.022148313656216487,
+        "p50": 0.018753926269710064,
+        "p95": 0.030081020668148994,
+        "p99": 0.19640708342194557
       },
-      "accepted_only_aggregation_ms": 120.28295500203967,
-      "accepted_only_query_ms": 4.894434008747339,
-      "price_join_query_ms": 6.520778057165444,
+      "accepted_only_aggregation_ms": 118.28583397436887,
+      "accepted_only_query_ms": 4.702296922914684,
+      "price_join_query_ms": 6.261014030314982,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -42,7 +42,7 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w1_5ngbbh_j/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w1_9q4tmwsg/admission.sqlite"
     },
     {
       "workers": 4,
@@ -55,17 +55,17 @@
         "duplicate_counter": 2499,
         "price_row_binding": 2500
       },
-      "elapsed_ms": 2724.608652992174,
-      "admissions_per_second": 36702.51868655694,
+      "elapsed_ms": 2485.1618780521676,
+      "admissions_per_second": 40238.82745150529,
       "latency_ms": {
-        "mean": 0.07882875801878982,
-        "p50": 0.0219360226765275,
-        "p95": 0.047186040319502354,
-        "p99": 0.16959290951490402
+        "mean": 0.08145195059245453,
+        "p50": 0.02079200930893421,
+        "p95": 0.03469001967459917,
+        "p99": 0.14959799591451883
       },
-      "accepted_only_aggregation_ms": 119.35169401112944,
-      "accepted_only_query_ms": 4.875902086496353,
-      "price_join_query_ms": 6.53652404434979,
+      "accepted_only_aggregation_ms": 122.67343502026051,
+      "accepted_only_query_ms": 5.1192790269851685,
+      "price_join_query_ms": 6.712250993587077,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -73,7 +73,7 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w4_c6r3700k/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w4_1xlper11/admission.sqlite"
     },
     {
       "workers": 16,
@@ -86,17 +86,17 @@
         "price_row_binding": 2500,
         "source_token_reuse": 5000
       },
-      "elapsed_ms": 2707.3146470356733,
-      "admissions_per_second": 36936.9700376324,
+      "elapsed_ms": 2607.8291170997545,
+      "admissions_per_second": 38346.07081587194,
       "latency_ms": {
-        "mean": 0.25682778407470325,
-        "p50": 0.021412968635559082,
-        "p95": 0.04096503835171461,
-        "p99": 0.1359040616080165
+        "mean": 0.26777477969415486,
+        "p50": 0.02103100996464491,
+        "p95": 0.041794031858444214,
+        "p99": 0.13959105126559734
       },
-      "accepted_only_aggregation_ms": 122.69165797624737,
-      "accepted_only_query_ms": 5.056982045061886,
-      "price_join_query_ms": 6.7598780151456594,
+      "accepted_only_aggregation_ms": 113.60981198959053,
+      "accepted_only_query_ms": 5.111675010994077,
+      "price_join_query_ms": 6.876823026686907,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -104,7 +104,7 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w16_6f__qc_6/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w16_z8q4mf49/admission.sqlite"
     },
     {
       "workers": 32,
@@ -112,22 +112,22 @@
       "accepted": 90001,
       "rejected": 9999,
       "reasons": {
-        "duplicate_counter": 2499,
         "accepted": 90001,
+        "duplicate_counter": 2499,
         "price_row_binding": 2500,
         "source_token_reuse": 5000
       },
-      "elapsed_ms": 2955.841719987802,
-      "admissions_per_second": 33831.310832304196,
+      "elapsed_ms": 3001.718117040582,
+      "admissions_per_second": 33314.25407079556,
       "latency_ms": {
-        "mean": 0.5884080690704286,
-        "p50": 0.022356980480253696,
-        "p95": 0.04983600229024887,
-        "p99": 0.16413803678005934
+        "mean": 0.5737437783705537,
+        "p50": 0.022066989913582802,
+        "p95": 0.04774192348122597,
+        "p99": 0.16185198910534382
       },
-      "accepted_only_aggregation_ms": 141.28695195540786,
-      "accepted_only_query_ms": 5.855774041265249,
-      "price_join_query_ms": 7.500790990889072,
+      "accepted_only_aggregation_ms": 156.01328504271805,
+      "accepted_only_query_ms": 4.6294080093503,
+      "price_join_query_ms": 6.34268403518945,
       "invariants": {
         "duplicate_sources": 0,
         "duplicate_counters": 0,
@@ -135,7 +135,7 @@
         "unaggregated_accepted": 0,
         "accepted_without_consumed_token": 0
       },
-      "db_path": "/tmp/e2e_admission_w32_sh79vcxl/admission.sqlite"
+      "db_path": "/tmp/e2e_admission_w32_yzye0dg2/admission.sqlite"
     }
   ],
   "race_tests": [
@@ -143,7 +143,7 @@
       "scenario": "source_token_race",
       "workers": 32,
       "accepted": 1,
-      "aggregation_ms": 0.1346359495073557,
+      "aggregation_ms": 0.12614403385668993,
       "rejected_by_reason": {
         "source_token_reuse": 31
       },
@@ -159,7 +159,7 @@
       "scenario": "counter_race",
       "workers": 32,
       "accepted": 1,
-      "aggregation_ms": 0.14437607023864985,
+      "aggregation_ms": 0.12771401088684797,
       "rejected_by_reason": {
         "duplicate_counter": 31
       },
@@ -175,9 +175,9 @@
   "crash_recovery": {
     "scenario": "crash_recovery",
     "missing_events": 2,
-    "recovery_mark_missing_ms": 0.07080996874719858,
-    "first_aggregation_ms": 0.1123680267482996,
-    "second_aggregation_ms": 0.019481987692415714,
+    "recovery_mark_missing_ms": 0.06244005635380745,
+    "first_aggregation_ms": 0.09678700007498264,
+    "second_aggregation_ms": 0.02200901508331299,
     "unaggregated_accepted": 0,
     "aggregate_reports_after_two_replays": 1,
     "invariant_violations": 0

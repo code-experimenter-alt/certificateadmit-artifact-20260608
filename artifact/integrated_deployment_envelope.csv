@@ -1,7 +1,7 @@
 path,component_derived_p95_ms,bottleneck_reports_per_s,bottleneck_component,evidence,limitation
-local_sql_admission_only,0.05,33831.311,sqlite_admission,"artifact/end_to_end_admission_benchmark.py, 32 workers","single-node reproducibility backend; no Nitro, KMS, or replicated ledger"
+local_sql_admission_only,0.048,33314.254,sqlite_admission,"artifact/end_to_end_admission_benchmark.py, 32 workers","single-node reproducibility backend; no Nitro, KMS, or replicated ledger"
 local_three_node_etcd_admission,22.497,952.352,etcd_compare_put,"artifact/etcd_linearizable_admission_benchmark.py, 16 clients",local three-node etcd using etcdctl subprocesses; no Nitro or KMS
-nitro_plus_sql_admission_envelope,18.95,666.6,recorded_nitro_oracle,recorded scaled Nitro p95 plus SQLite admission artifact,component-derived envelope; no live KMS or external ledger in same run
+nitro_plus_sql_admission_envelope,18.948,666.6,recorded_nitro_oracle,recorded scaled Nitro p95 plus SQLite admission artifact,component-derived envelope; no live KMS or external ledger in same run
 nitro_plus_linearizable_ledger_envelope,41.397,666.6,recorded_nitro_oracle,recorded scaled Nitro p95 plus local three-node etcd check,component-derived envelope; etcd run is local and uses subprocess clients
 nitro_kms5_linearizable_ledger_envelope,46.397,666.6,recorded_nitro_oracle,"recorded Nitro p95, local etcd check, and explicit KMS latency parameter",what-if envelope for KMS release latency; not a measured AWS KMS integration
 nitro_kms25_linearizable_ledger_envelope,66.397,666.6,recorded_nitro_oracle,"recorded Nitro p95, local etcd check, and explicit KMS latency parameter",what-if envelope for KMS release latency; not a measured AWS KMS integration

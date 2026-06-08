@@ -1,26 +1,36 @@
 # CertificateAdmit Reproducibility Artifact
 
-This repository contains the anonymized artifact package for the ICDE submission on visible-state admission for LDP data products.
+This repository contains the anonymized local artifact package for the
+budget/class-integrity certificate study. It includes executable scripts under
+`artifact/`, public inputs under `data/`, generated CSV/JSON outputs, figure
+inputs under `figures/`, and the root `Makefile` used for local reproduction.
 
-## Quick start
+Local smoke test:
 
 ```bash
 make smoke
 ```
 
-The full non-AWS local reproduction path is:
+Full non-AWS reproduction path:
 
 ```bash
 make reproduce
 ```
 
-Optional checks:
+Optional PostgreSQL serializable admission check:
 
 ```bash
 make postgres
+```
+
+Optional etcd linearizable admission check:
+
+```bash
 make etcd
 ```
 
-The artifact includes executable scripts under `artifact/`, public datasets under `data/`, generated CSV/JSON outputs, figure inputs under `figures/`, and the root `Makefile` used by the paper. It intentionally excludes paper source files and author-identifying metadata.
+This target expects `etcd` and `etcdctl` on `PATH` or `ETCD_BIN_DIR` pointing
+to their directory; it runs the 1,000-attempt three-node check reported in the
+paper.
 
-See `artifact/README.md` for script-by-script details.
+Generated LaTeX build files and transient verification outputs are excluded.

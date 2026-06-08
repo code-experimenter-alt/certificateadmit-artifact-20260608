@@ -2,18 +2,18 @@
   "admission_benchmarks": [
     {
       "accepted": 18001,
-      "accepted_only_aggregation_ms": 25.206670979969203,
-      "accepted_only_query_ms": 0.9915060363709927,
+      "accepted_only_aggregation_ms": 21.79659204557538,
+      "accepted_only_query_ms": 0.9482839377596974,
       "attestation_digest_ms": {
-        "mean": 0.0012485851417295634,
-        "p95": 0.002384069375693798
+        "mean": 0.0006153225840535015,
+        "p95": 0.0007150229066610336
       },
-      "elapsed_ms": 933.5948249790817,
+      "elapsed_ms": 418.6410899274051,
       "end_to_end_latency_ms": {
-        "mean": 0.37815124344197104,
-        "p50": 0.024365028366446495,
-        "p95": 0.059428042732179165,
-        "p99": 0.14742708299309015
+        "mean": 0.020747017621761187,
+        "p50": 0.017936108633875847,
+        "p95": 0.027355970814824104,
+        "p99": 0.11218502186238766
       },
       "invariants": {
         "accepted_without_consumed_token": 0,
@@ -22,7 +22,7 @@
         "duplicate_sources": 0,
         "unaggregated_accepted": 0
       },
-      "price_join_query_ms": 1.3341070152819157,
+      "price_join_query_ms": 1.2235169997438788,
       "reasons": {
         "accepted": 18001,
         "duplicate_counter": 499,
@@ -30,7 +30,75 @@
         "source_token_reuse": 1000
       },
       "rejected": 1999,
-      "reports_per_second": 21422.56947541255,
+      "reports_per_second": 47773.619172136496,
+      "submitted": 20000,
+      "workers": 1
+    },
+    {
+      "accepted": 18001,
+      "accepted_only_aggregation_ms": 21.35228901170194,
+      "accepted_only_query_ms": 0.9892949601635337,
+      "attestation_digest_ms": {
+        "mean": 0.0007955315813887864,
+        "p95": 0.0018799910321831703
+      },
+      "elapsed_ms": 557.6920970343053,
+      "end_to_end_latency_ms": {
+        "mean": 0.07547835844452493,
+        "p50": 0.020053936168551445,
+        "p95": 0.039982027374207973,
+        "p99": 0.13843702618032694
+      },
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "price_join_query_ms": 1.2397469254210591,
+      "reasons": {
+        "accepted": 18001,
+        "duplicate_counter": 499,
+        "price_row_binding": 500,
+        "source_token_reuse": 1000
+      },
+      "rejected": 1999,
+      "reports_per_second": 35862.08251175871,
+      "submitted": 20000,
+      "workers": 4
+    },
+    {
+      "accepted": 18001,
+      "accepted_only_aggregation_ms": 32.46191400103271,
+      "accepted_only_query_ms": 0.9374500950798392,
+      "attestation_digest_ms": {
+        "mean": 0.001030906056985259,
+        "p95": 0.002140994183719158
+      },
+      "elapsed_ms": 963.0619230447337,
+      "end_to_end_latency_ms": {
+        "mean": 0.3438773880887311,
+        "p50": 0.021723099052906036,
+        "p95": 0.051431008614599705,
+        "p99": 0.13468600809574127
+      },
+      "invariants": {
+        "accepted_without_consumed_token": 0,
+        "duplicate_counters": 0,
+        "duplicate_nonces": 0,
+        "duplicate_sources": 0,
+        "unaggregated_accepted": 0
+      },
+      "price_join_query_ms": 1.2536259600892663,
+      "reasons": {
+        "accepted": 18001,
+        "duplicate_counter": 499,
+        "price_row_binding": 500,
+        "source_token_reuse": 1000
+      },
+      "rejected": 1999,
+      "reports_per_second": 20767.096612821864,
       "submitted": 20000,
       "workers": 16
     }
@@ -38,12 +106,12 @@
   "artifact": "local_integrated_verifier_path",
   "crash_recovery": {
     "aggregate_reports_after_two_replays": 1,
-    "first_aggregation_ms": 0.055482960306108,
+    "first_aggregation_ms": 0.05558005068451166,
     "invariant_violations": 0,
     "missing_events": 2,
-    "recovery_mark_missing_ms": 0.04131195601075888,
+    "recovery_mark_missing_ms": 0.030172057449817657,
     "scenario": "crash_recovery",
-    "second_aggregation_ms": 0.007594004273414612,
+    "second_aggregation_ms": 0.007258960977196693,
     "unaggregated_accepted": 0
   },
   "description": "local integrated source-token, attestation-digest, serializable admission, rejection, queue, and aggregation path",
@@ -58,13 +126,15 @@
     "n": 20000,
     "policy": "policy-v5",
     "workers": [
+      1,
+      4,
       16
     ]
   },
   "race_tests": [
     {
       "accepted": 1,
-      "aggregation_ms": 0.13666506856679916,
+      "aggregation_ms": 0.06664497777819633,
       "invariants": {
         "accepted_without_consumed_token": 0,
         "duplicate_counters": 0,
@@ -80,7 +150,7 @@
     },
     {
       "accepted": 1,
-      "aggregation_ms": 0.08286291267722845,
+      "aggregation_ms": 0.063369981944561,
       "invariants": {
         "accepted_without_consumed_token": 0,
         "duplicate_counters": 0,

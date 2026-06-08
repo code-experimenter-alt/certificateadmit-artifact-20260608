@@ -53,22 +53,22 @@
     "recorded_nitro_p95_ms": 18.9,
     "recorded_nitro_reports_per_s": 666.6,
     "recorded_nitro_runtime_usd_per_m": 0.08,
-    "sqlite_32_worker_p95_ms": 0.04983600229024887,
-    "sqlite_32_worker_reports_per_s": 33831.310832304196
+    "sqlite_32_worker_p95_ms": 0.04774192348122597,
+    "sqlite_32_worker_reports_per_s": 33314.25407079556
   },
   "rows": [
     {
       "bottleneck_component": "sqlite_admission",
-      "bottleneck_reports_per_s": 33831.311,
-      "component_derived_p95_ms": 0.05,
+      "bottleneck_reports_per_s": 33314.254,
+      "component_derived_p95_ms": 0.048,
       "evidence": "artifact/end_to_end_admission_benchmark.py, 32 workers",
       "limitation": "single-node reproducibility backend; no Nitro, KMS, or replicated ledger",
       "p95_parts": {
-        "sqlite_admission": 0.04983600229024887
+        "sqlite_admission": 0.04774192348122597
       },
       "path": "local_sql_admission_only",
       "throughput_parts": {
-        "sqlite_admission": 33831.310832304196
+        "sqlite_admission": 33314.25407079556
       }
     },
     {
@@ -88,17 +88,17 @@
     {
       "bottleneck_component": "recorded_nitro_oracle",
       "bottleneck_reports_per_s": 666.6,
-      "component_derived_p95_ms": 18.95,
+      "component_derived_p95_ms": 18.948,
       "evidence": "recorded scaled Nitro p95 plus SQLite admission artifact",
       "limitation": "component-derived envelope; no live KMS or external ledger in same run",
       "p95_parts": {
         "recorded_nitro_oracle": 18.9,
-        "sqlite_admission": 0.04983600229024887
+        "sqlite_admission": 0.04774192348122597
       },
       "path": "nitro_plus_sql_admission_envelope",
       "throughput_parts": {
         "recorded_nitro_oracle": 666.6,
-        "sqlite_admission": 33831.310832304196
+        "sqlite_admission": 33314.25407079556
       }
     },
     {
